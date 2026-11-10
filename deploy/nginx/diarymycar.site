@@ -1,0 +1,43 @@
+# diarymycar.site -> 내차일기
+# docker compose의 front 컨테이너(127.0.0.1:8088)로 넘긴다. /api 는 그 컨테이너 안의 nginx가 back으로 다시 넘긴다.
+#
+# 처음에는 80번(HTTP)만 둔다. certbot이 443(SSL) 블록과 http→https 리다이렉트를 자동으로 추가한다.
+#   (borehole-log.site 와 같은 "managed by Certbot" 방식)
+# 채팅 API 보조 제한(대량 요청이 서버에 닿기 전에 차단). 정확한 분당 제한은 서버(ChatRateLimiter)가 한다.
+limit_req_zone $binary_remote_addr zone=diary_chat:10m rate=20r/m;
+
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name diarymycar.site www.diarymycar.site;
+
+    client_max_body_size 10m;
+
+    location = /api/v1/chat {
+        limit_req zone=diary_chat burst=10 nodelay;
+        limit_req_status 429;
+
+        proxy_pass http://127.0.0.1:8088;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_read_timeout 120s;
+        proxy_send_timeout 120s;
+    }
+
+    location / {
+        proxy_pass http://127.0.0.1:8088;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;   # 로그인 쿠키의 Secure 속성 판단에 쓰인다
+
+        # GPT 응답을 기다리는 채팅 요청이 길 수 있어 기본값(60초)보다 늘린다.
+        proxy_read_timeout 120s;
+        proxy_send_timeout 120s;
+    }
+}

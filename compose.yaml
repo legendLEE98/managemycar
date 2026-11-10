@@ -1,0 +1,49 @@
+services:
+  db:
+    ports: 
+      - "127.0.0.1:5434:5432"
+    image: postgres:16-alpine
+    container_name: mycar-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: mycar
+      POSTGRES_USER: mycar
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-mycar}
+    volumes:
+      - mycar-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mycar -d mycar"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  back:
+    build: ./back
+    container_name: mycar-back
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/mycar
+      SPRING_DATASOURCE_USERNAME: mycar
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD:-mycar}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4o-mini}
+      OPENAI_REASONING_EFFORT: ${OPENAI_REASONING_EFFORT:-none}
+      JWT_SECRET: ${JWT_SECRET:-}
+      CHAT_LIMIT_PER_MINUTE: ${CHAT_LIMIT_PER_MINUTE:-6}
+      CHAT_DAILY_USER: ${CHAT_DAILY_USER:-60}
+      CHAT_DAILY_GUEST: ${CHAT_DAILY_GUEST:-20}
+
+  front:
+    build: ./front
+    container_name: mycar-front
+    restart: unless-stopped
+    depends_on:
+      - back
+    ports:
+      - "8088:80"
+
+volumes:
+  mycar-db:

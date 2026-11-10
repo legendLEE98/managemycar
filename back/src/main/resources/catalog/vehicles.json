@@ -1,0 +1,3716 @@
+[
+ {
+  "make": "현대",
+  "model": "캐스퍼",
+  "aliases": [
+   "casper"
+  ],
+  "body": "compact",
+  "fuels": [
+   "gasoline",
+   "electric"
+  ],
+  "from": 2021,
+  "to": null
+ },
+ {
+  "make": "현대",
+  "model": "베뉴",
+  "aliases": [
+   "venue"
+  ],
+  "body": "suv_small",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 2019,
+  "to": null
+ },
+ {
+  "make": "현대",
+  "model": "코나",
+  "aliases": [
+   "kona"
+  ],
+  "body": "suv_small",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid",
+   "electric"
+  ],
+  "from": 2017,
+  "to": null
+ },
+ {
+  "make": "현대",
+  "model": "투싼",
+  "aliases": [
+   "투산",
+   "tucson"
+  ],
+  "body": "suv_semimid",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid"
+  ],
+  "from": 2004,
+  "to": null
+ },
+ {
+  "make": "현대",
+  "model": "싼타페",
+  "aliases": [
+   "산타페",
+   "santafe",
+   "santa fe"
+  ],
+  "body": "suv",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid"
+  ],
+  "from": 2000,
+  "to": null
+ },
+ {
+  "make": "현대",
+  "model": "팰리세이드",
+  "aliases": [
+   "펠리세이드",
+   "palisade"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid"
+  ],
+  "from": 2018,
+  "to": null
+ },
+ {
+  "make": "현대",
+  "model": "아이오닉",
+  "aliases": [
+   "아이오닉 1세대"
+  ],
+  "body": "semimid",
+  "fuels": [
+   "hybrid",
+   "electric"
+  ],
+  "from": 2016,
+  "to": 2022
+ },
+ {
+  "make": "현대",
+  "model": "아이오닉 5",
+  "aliases": [
+   "아이오닉5",
+   "아이오닉 파이브",
+   "ioniq5",
+   "ioniq 5"
+  ],
+  "body": "suv_semimid",
+  "fuels": [
+   "electric"
+  ],
+  "from": 2021,
+  "to": null
+ },
+ {
+  "make": "현대",
+  "model": "아이오닉 6",
+  "aliases": [
+   "아이오닉6",
+   "ioniq6",
+   "ioniq 6"
+  ],
+  "body": "sedan",
+  "fuels": [
+   "electric"
+  ],
+  "from": 2022,
+  "to": null
+ },
+ {
+  "make": "현대",
+  "model": "아이오닉 9",
+  "aliases": [
+   "아이오닉9",
+   "ioniq9",
+   "ioniq 9"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "electric"
+  ],
+  "from": 2025,
+  "to": null
+ },
+ {
+  "make": "현대",
+  "model": "아반떼",
+  "aliases": [
+   "아반테",
+   "엘란트라",
+   "avante",
+   "elantra"
+  ],
+  "body": "semimid",
+  "fuels": [
+   "gasoline",
+   "hybrid",
+   "lpg"
+  ],
+  "from": 1990,
+  "to": null
+ },
+ {
+  "make": "현대",
+  "model": "쏘나타",
+  "aliases": [
+   "소나타",
+   "sonata"
+  ],
+  "body": "sedan",
+  "fuels": [
+   "gasoline",
+   "hybrid",
+   "lpg"
+  ],
+  "from": 1985,
+  "to": null
+ },
+ {
+  "make": "현대",
+  "model": "그랜저",
+  "aliases": [
+   "그렌져",
+   "grandeur"
+  ],
+  "body": "semilarge",
+  "fuels": [
+   "gasoline",
+   "hybrid",
+   "lpg",
+   "diesel"
+  ],
+  "from": 1986,
+  "to": null
+ },
+ {
+  "make": "현대",
+  "model": "엑센트",
+  "aliases": [
+   "액센트"
+  ],
+  "body": "small",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 1994,
+  "to": null
+ },
+ {
+  "make": "현대",
+  "model": "i30",
+  "aliases": [
+   "아이삼십"
+  ],
+  "body": "semimid",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2007,
+  "to": null
+ },
+ {
+  "make": "현대",
+  "model": "스타리아",
+  "aliases": [
+   "staria"
+  ],
+  "body": "minivan",
+  "fuels": [
+   "diesel",
+   "lpg",
+   "hybrid"
+  ],
+  "from": 2021,
+  "to": null
+ },
+ {
+  "make": "제네시스",
+  "model": "G70",
+  "aliases": [
+   "지70"
+  ],
+  "body": "sedan",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2017,
+  "to": null
+ },
+ {
+  "make": "제네시스",
+  "model": "G80",
+  "aliases": [
+   "지80"
+  ],
+  "body": "semilarge",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "electric"
+  ],
+  "from": 2016,
+  "to": null
+ },
+ {
+  "make": "제네시스",
+  "model": "G90",
+  "aliases": [
+   "지90"
+  ],
+  "body": "large",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 2015,
+  "to": null
+ },
+ {
+  "make": "제네시스",
+  "model": "GV60",
+  "aliases": [
+   "지브이60"
+  ],
+  "body": "suv_semimid",
+  "fuels": [
+   "electric"
+  ],
+  "from": 2021,
+  "to": null
+ },
+ {
+  "make": "제네시스",
+  "model": "GV70",
+  "aliases": [
+   "지브이70"
+  ],
+  "body": "suv",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "electric"
+  ],
+  "from": 2020,
+  "to": null
+ },
+ {
+  "make": "제네시스",
+  "model": "GV80",
+  "aliases": [
+   "지브이80"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2020,
+  "to": null
+ },
+ {
+  "make": "기아",
+  "model": "모닝",
+  "aliases": [
+   "뉴모닝",
+   "morning",
+   "picanto"
+  ],
+  "body": "compact",
+  "fuels": [
+   "gasoline",
+   "lpg"
+  ],
+  "from": 2004,
+  "to": null
+ },
+ {
+  "make": "기아",
+  "model": "레이",
+  "aliases": [
+   "ray"
+  ],
+  "body": "compact",
+  "fuels": [
+   "gasoline",
+   "electric"
+  ],
+  "from": 2011,
+  "to": null
+ },
+ {
+  "make": "기아",
+  "model": "스토닉",
+  "aliases": [
+   "stonic"
+  ],
+  "body": "suv_small",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2017,
+  "to": null
+ },
+ {
+  "make": "기아",
+  "model": "셀토스",
+  "aliases": [
+   "seltos"
+  ],
+  "body": "suv_small",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid"
+  ],
+  "from": 2019,
+  "to": null
+ },
+ {
+  "make": "기아",
+  "model": "니로",
+  "aliases": [
+   "niro"
+  ],
+  "body": "suv_small",
+  "fuels": [
+   "hybrid",
+   "electric"
+  ],
+  "from": 2016,
+  "to": null
+ },
+ {
+  "make": "기아",
+  "model": "스포티지",
+  "aliases": [
+   "sportage"
+  ],
+  "body": "suv_semimid",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid",
+   "lpg"
+  ],
+  "from": 1993,
+  "to": null
+ },
+ {
+  "make": "기아",
+  "model": "쏘렌토",
+  "aliases": [
+   "소렌토",
+   "sorento"
+  ],
+  "body": "suv",
+  "fuels": [
+   "diesel",
+   "gasoline",
+   "hybrid",
+   "lpg"
+  ],
+  "from": 2002,
+  "to": null
+ },
+ {
+  "make": "기아",
+  "model": "모하비",
+  "aliases": [
+   "mojave",
+   "borrego"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "diesel"
+  ],
+  "from": 2008,
+  "to": null
+ },
+ {
+  "make": "기아",
+  "model": "카니발",
+  "aliases": [
+   "카니벌",
+   "carnival"
+  ],
+  "body": "minivan",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid",
+   "lpg"
+  ],
+  "from": 1998,
+  "to": null
+ },
+ {
+  "make": "기아",
+  "model": "K3",
+  "aliases": [
+   "케이3",
+   "케이쓰리"
+  ],
+  "body": "semimid",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "lpg"
+  ],
+  "from": 2012,
+  "to": 2024
+ },
+ {
+  "make": "기아",
+  "model": "K4",
+  "aliases": [
+   "케이4"
+  ],
+  "body": "semimid",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 2024,
+  "to": null
+ },
+ {
+  "make": "기아",
+  "model": "K5",
+  "aliases": [
+   "케이5",
+   "케이파이브"
+  ],
+  "body": "sedan",
+  "fuels": [
+   "gasoline",
+   "hybrid",
+   "lpg"
+  ],
+  "from": 2010,
+  "to": null
+ },
+ {
+  "make": "기아",
+  "model": "K7",
+  "aliases": [
+   "케이7"
+  ],
+  "body": "semilarge",
+  "fuels": [
+   "gasoline",
+   "hybrid",
+   "lpg",
+   "diesel"
+  ],
+  "from": 2009,
+  "to": 2021
+ },
+ {
+  "make": "기아",
+  "model": "K8",
+  "aliases": [
+   "케이8"
+  ],
+  "body": "semilarge",
+  "fuels": [
+   "gasoline",
+   "hybrid",
+   "lpg"
+  ],
+  "from": 2021,
+  "to": null
+ },
+ {
+  "make": "기아",
+  "model": "K9",
+  "aliases": [
+   "케이9"
+  ],
+  "body": "large",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 2012,
+  "to": null
+ },
+ {
+  "make": "기아",
+  "model": "EV3",
+  "aliases": [
+   "이브이3"
+  ],
+  "body": "suv_small",
+  "fuels": [
+   "electric"
+  ],
+  "from": 2024,
+  "to": null
+ },
+ {
+  "make": "기아",
+  "model": "EV6",
+  "aliases": [
+   "이브이6"
+  ],
+  "body": "suv_semimid",
+  "fuels": [
+   "electric"
+  ],
+  "from": 2021,
+  "to": null
+ },
+ {
+  "make": "기아",
+  "model": "EV9",
+  "aliases": [
+   "이브이9"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "electric"
+  ],
+  "from": 2023,
+  "to": null
+ },
+ {
+  "make": "쉐보레",
+  "model": "스파크",
+  "aliases": [
+   "spark"
+  ],
+  "body": "compact",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 2009,
+  "to": null
+ },
+ {
+  "make": "쉐보레",
+  "model": "트랙스 크로스오버",
+  "aliases": [
+   "트랙스"
+  ],
+  "body": "suv_small",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 2024,
+  "to": null
+ },
+ {
+  "make": "쉐보레",
+  "model": "트레일블레이저",
+  "aliases": [
+   "trailblazer"
+  ],
+  "body": "suv_small",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 2020,
+  "to": null
+ },
+ {
+  "make": "쉐보레",
+  "model": "트래버스",
+  "aliases": [
+   "traverse"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 2018,
+  "to": null
+ },
+ {
+  "make": "쉐보레",
+  "model": "말리부",
+  "aliases": [
+   "malibu"
+  ],
+  "body": "sedan",
+  "fuels": [
+   "gasoline",
+   "hybrid",
+   "diesel"
+  ],
+  "from": 2011,
+  "to": null
+ },
+ {
+  "make": "KGM",
+  "model": "티볼리",
+  "aliases": [
+   "쌍용 티볼리",
+   "tivoli"
+  ],
+  "body": "suv_small",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2015,
+  "to": null
+ },
+ {
+  "make": "KGM",
+  "model": "코란도",
+  "aliases": [
+   "쌍용 코란도"
+  ],
+  "body": "suv_semimid",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "electric"
+  ],
+  "from": 2011,
+  "to": null
+ },
+ {
+  "make": "KGM",
+  "model": "토레스",
+  "aliases": [
+   "torres"
+  ],
+  "body": "suv",
+  "fuels": [
+   "gasoline",
+   "hybrid",
+   "electric"
+  ],
+  "from": 2022,
+  "to": null
+ },
+ {
+  "make": "KGM",
+  "model": "액티언",
+  "aliases": [],
+  "body": "suv",
+  "fuels": [
+   "gasoline",
+   "hybrid"
+  ],
+  "from": 2024,
+  "to": null
+ },
+ {
+  "make": "KGM",
+  "model": "렉스턴",
+  "aliases": [
+   "쌍용 렉스턴",
+   "rexton"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "diesel",
+   "gasoline"
+  ],
+  "from": 2001,
+  "to": null
+ },
+ {
+  "make": "르노코리아",
+  "model": "SM6",
+  "aliases": [
+   "에스엠6"
+  ],
+  "body": "sedan",
+  "fuels": [
+   "gasoline",
+   "lpg",
+   "diesel"
+  ],
+  "from": 2016,
+  "to": null
+ },
+ {
+  "make": "르노코리아",
+  "model": "QM6",
+  "aliases": [
+   "큐엠6"
+  ],
+  "body": "suv",
+  "fuels": [
+   "gasoline",
+   "lpg",
+   "diesel"
+  ],
+  "from": 2016,
+  "to": null
+ },
+ {
+  "make": "르노코리아",
+  "model": "XM3",
+  "aliases": [
+   "엑스엠3"
+  ],
+  "body": "suv_small",
+  "fuels": [
+   "gasoline",
+   "hybrid"
+  ],
+  "from": 2020,
+  "to": null
+ },
+ {
+  "make": "르노코리아",
+  "model": "그랑 콜레오스",
+  "aliases": [
+   "콜레오스"
+  ],
+  "body": "suv",
+  "fuels": [
+   "gasoline",
+   "hybrid"
+  ],
+  "from": 2024,
+  "to": null
+ },
+ {
+  "make": "BMW",
+  "model": "3시리즈",
+  "aliases": [
+   "3 시리즈"
+  ],
+  "body": "sedan",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid"
+  ],
+  "from": 1975,
+  "to": null
+ },
+ {
+  "make": "BMW",
+  "model": "5시리즈",
+  "aliases": [
+   "5 시리즈"
+  ],
+  "body": "semilarge",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid"
+  ],
+  "from": 1972,
+  "to": null
+ },
+ {
+  "make": "BMW",
+  "model": "7시리즈",
+  "aliases": [
+   "7 시리즈"
+  ],
+  "body": "large",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid",
+   "electric"
+  ],
+  "from": 1977,
+  "to": null
+ },
+ {
+  "make": "BMW",
+  "model": "X3",
+  "aliases": [
+   "엑스3"
+  ],
+  "body": "suv_semimid",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid"
+  ],
+  "from": 2003,
+  "to": null
+ },
+ {
+  "make": "BMW",
+  "model": "X5",
+  "aliases": [
+   "엑스5"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid"
+  ],
+  "from": 1999,
+  "to": null
+ },
+ {
+  "make": "벤츠",
+  "model": "C클래스",
+  "aliases": [
+   "C 클래스",
+   "씨클래스"
+  ],
+  "body": "sedan",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid"
+  ],
+  "from": 1993,
+  "to": null
+ },
+ {
+  "make": "벤츠",
+  "model": "E클래스",
+  "aliases": [
+   "E 클래스",
+   "이클래스"
+  ],
+  "body": "semilarge",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid"
+  ],
+  "from": 1993,
+  "to": null
+ },
+ {
+  "make": "벤츠",
+  "model": "S클래스",
+  "aliases": [
+   "S 클래스",
+   "에스클래스"
+  ],
+  "body": "large",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid"
+  ],
+  "from": 1972,
+  "to": null
+ },
+ {
+  "make": "벤츠",
+  "model": "GLC",
+  "aliases": [
+   "지엘씨"
+  ],
+  "body": "suv_semimid",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid"
+  ],
+  "from": 2015,
+  "to": null
+ },
+ {
+  "make": "벤츠",
+  "model": "GLE",
+  "aliases": [
+   "지엘이"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid"
+  ],
+  "from": 2015,
+  "to": null
+ },
+ {
+  "make": "아우디",
+  "model": "A4",
+  "aliases": [
+   "에이4"
+  ],
+  "body": "sedan",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 1994,
+  "to": null
+ },
+ {
+  "make": "아우디",
+  "model": "A6",
+  "aliases": [
+   "에이6"
+  ],
+  "body": "semilarge",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 1994,
+  "to": null
+ },
+ {
+  "make": "아우디",
+  "model": "Q5",
+  "aliases": [
+   "큐5"
+  ],
+  "body": "suv_semimid",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2008,
+  "to": null
+ },
+ {
+  "make": "테슬라",
+  "model": "모델 3",
+  "aliases": [
+   "모델3",
+   "model 3",
+   "tesla model 3",
+   "tesla model3"
+  ],
+  "body": "sedan",
+  "fuels": [
+   "electric"
+  ],
+  "from": 2017,
+  "to": null
+ },
+ {
+  "make": "테슬라",
+  "model": "모델 Y",
+  "aliases": [
+   "모델Y",
+   "모델와이",
+   "model y",
+   "tesla model y"
+  ],
+  "body": "suv_semimid",
+  "fuels": [
+   "electric"
+  ],
+  "from": 2020,
+  "to": null
+ },
+ {
+  "make": "테슬라",
+  "model": "모델 S",
+  "aliases": [
+   "모델S",
+   "model s",
+   "tesla model s"
+  ],
+  "body": "large",
+  "fuels": [
+   "electric"
+  ],
+  "from": 2012,
+  "to": null
+ },
+ {
+  "make": "테슬라",
+  "model": "모델 X",
+  "aliases": [
+   "모델X",
+   "model x",
+   "tesla model x"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "electric"
+  ],
+  "from": 2015,
+  "to": null
+ },
+ {
+  "make": "볼보",
+  "model": "XC40",
+  "aliases": [
+   "엑스씨40"
+  ],
+  "body": "suv_small",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid",
+   "electric"
+  ],
+  "from": 2017,
+  "to": null
+ },
+ {
+  "make": "볼보",
+  "model": "XC60",
+  "aliases": [
+   "엑스씨60"
+  ],
+  "body": "suv",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid"
+  ],
+  "from": 2008,
+  "to": null
+ },
+ {
+  "make": "볼보",
+  "model": "XC90",
+  "aliases": [
+   "엑스씨90"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid"
+  ],
+  "from": 2002,
+  "to": null
+ },
+ {
+  "make": "폭스바겐",
+  "model": "골프",
+  "aliases": [
+   "골프 gti",
+   "golf"
+  ],
+  "body": "semimid",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 1974,
+  "to": null
+ },
+ {
+  "make": "폭스바겐",
+  "model": "티구안",
+  "aliases": [
+   "tiguan"
+  ],
+  "body": "suv_semimid",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2007,
+  "to": null
+ },
+ {
+  "make": "도요타",
+  "model": "캠리",
+  "aliases": [
+   "camry"
+  ],
+  "body": "sedan",
+  "fuels": [
+   "gasoline",
+   "hybrid"
+  ],
+  "from": 1982,
+  "to": null
+ },
+ {
+  "make": "렉서스",
+  "model": "ES",
+  "aliases": [
+   "이에스"
+  ],
+  "body": "semilarge",
+  "fuels": [
+   "gasoline",
+   "hybrid"
+  ],
+  "from": 1989,
+  "to": null
+ },
+ {
+  "make": "렉서스",
+  "model": "RX",
+  "aliases": [
+   "알엑스"
+  ],
+  "body": "suv",
+  "fuels": [
+   "gasoline",
+   "hybrid"
+  ],
+  "from": 1998,
+  "to": null
+ },
+ {
+  "make": "현대",
+  "model": "포터",
+  "aliases": [
+   "포터2",
+   "포터Ⅱ",
+   "porter"
+  ],
+  "body": "truck",
+  "fuels": [
+   "diesel",
+   "electric",
+   "lpg"
+  ],
+  "from": 2004,
+  "to": null
+ },
+ {
+  "make": "현대",
+  "model": "마이티",
+  "aliases": [
+   "mighty"
+  ],
+  "body": "truck",
+  "fuels": [
+   "diesel"
+  ],
+  "from": 1986,
+  "to": null
+ },
+ {
+  "make": "현대",
+  "model": "쏠라티",
+  "aliases": [
+   "solati"
+  ],
+  "body": "minivan",
+  "fuels": [
+   "diesel"
+  ],
+  "from": 2015,
+  "to": null
+ },
+ {
+  "make": "현대",
+  "model": "스타렉스",
+  "aliases": [
+   "그랜드 스타렉스",
+   "그랜드스타렉스",
+   "starex"
+  ],
+  "body": "minivan",
+  "fuels": [
+   "diesel",
+   "gasoline",
+   "lpg"
+  ],
+  "from": 1997,
+  "to": 2021
+ },
+ {
+  "make": "현대",
+  "model": "벨로스터",
+  "aliases": [
+   "veloster"
+  ],
+  "body": "semimid",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 2011,
+  "to": 2022
+ },
+ {
+  "make": "현대",
+  "model": "제네시스 쿠페",
+  "aliases": [
+   "제네시스쿠페",
+   "genesis coupe"
+  ],
+  "body": "sports",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 2008,
+  "to": 2016
+ },
+ {
+  "make": "현대",
+  "model": "투스카니",
+  "aliases": [
+   "튜스카니",
+   "tuscani"
+  ],
+  "body": "sports",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 2001,
+  "to": 2008
+ },
+ {
+  "make": "현대",
+  "model": "아슬란",
+  "aliases": [
+   "aslan"
+  ],
+  "body": "semilarge",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 2014,
+  "to": 2017
+ },
+ {
+  "make": "현대",
+  "model": "에쿠스",
+  "aliases": [
+   "equus"
+  ],
+  "body": "large",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 1999,
+  "to": 2016
+ },
+ {
+  "make": "현대",
+  "model": "베라크루즈",
+  "aliases": [
+   "veracruz"
+  ],
+  "body": "suv",
+  "fuels": [
+   "diesel",
+   "gasoline"
+  ],
+  "from": 2006,
+  "to": 2015
+ },
+ {
+  "make": "현대",
+  "model": "맥스크루즈",
+  "aliases": [
+   "maxcruz"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "diesel",
+   "gasoline"
+  ],
+  "from": 2015,
+  "to": 2019
+ },
+ {
+  "make": "현대",
+  "model": "테라칸",
+  "aliases": [
+   "terracan"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "diesel"
+  ],
+  "from": 2001,
+  "to": 2007
+ },
+ {
+  "make": "현대",
+  "model": "갤로퍼",
+  "aliases": [
+   "galloper"
+  ],
+  "body": "suv",
+  "fuels": [
+   "diesel"
+  ],
+  "from": 1991,
+  "to": 2003
+ },
+ {
+  "make": "현대",
+  "model": "베르나",
+  "aliases": [
+   "verna"
+  ],
+  "body": "small",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2005,
+  "to": 2010
+ },
+ {
+  "make": "현대",
+  "model": "i40",
+  "aliases": [
+   "아이사십"
+  ],
+  "body": "sedan",
+  "fuels": [
+   "diesel",
+   "gasoline"
+  ],
+  "from": 2011,
+  "to": 2019
+ },
+ {
+  "make": "현대",
+  "model": "겟츠",
+  "aliases": [
+   "getz"
+  ],
+  "body": "small",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2002,
+  "to": 2011
+ },
+ {
+  "make": "현대",
+  "model": "라비타",
+  "aliases": [
+   "lavita"
+  ],
+  "body": "small",
+  "fuels": [
+   "gasoline",
+   "lpg"
+  ],
+  "from": 2001,
+  "to": 2007
+ },
+ {
+  "make": "기아",
+  "model": "봉고",
+  "aliases": [
+   "봉고3",
+   "봉고Ⅲ",
+   "bongo"
+  ],
+  "body": "truck",
+  "fuels": [
+   "diesel",
+   "electric",
+   "lpg"
+  ],
+  "from": 2004,
+  "to": null
+ },
+ {
+  "make": "기아",
+  "model": "스팅어",
+  "aliases": [
+   "stinger"
+  ],
+  "body": "semilarge",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2017,
+  "to": 2023
+ },
+ {
+  "make": "기아",
+  "model": "쏘울",
+  "aliases": [
+   "soul"
+  ],
+  "body": "suv_small",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "electric"
+  ],
+  "from": 2008,
+  "to": null
+ },
+ {
+  "make": "기아",
+  "model": "카렌스",
+  "aliases": [
+   "carens"
+  ],
+  "body": "minivan",
+  "fuels": [
+   "diesel",
+   "gasoline",
+   "lpg"
+  ],
+  "from": 1999,
+  "to": 2018
+ },
+ {
+  "make": "기아",
+  "model": "포르테",
+  "aliases": [
+   "forte",
+   "포르테쿱"
+  ],
+  "body": "semimid",
+  "fuels": [
+   "gasoline",
+   "lpg"
+  ],
+  "from": 2008,
+  "to": 2018
+ },
+ {
+  "make": "기아",
+  "model": "프라이드",
+  "aliases": [
+   "pride"
+  ],
+  "body": "small",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2000,
+  "to": 2017
+ },
+ {
+  "make": "기아",
+  "model": "오피러스",
+  "aliases": [
+   "opirus"
+  ],
+  "body": "large",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 2003,
+  "to": 2011
+ },
+ {
+  "make": "기아",
+  "model": "PV5",
+  "aliases": [
+   "피브이5"
+  ],
+  "body": "minivan",
+  "fuels": [
+   "electric"
+  ],
+  "from": 2025,
+  "to": null
+ },
+ {
+  "make": "기아",
+  "model": "타스만",
+  "aliases": [
+   "tasman"
+  ],
+  "body": "pickup",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2025,
+  "to": null
+ },
+ {
+  "make": "쉐보레",
+  "model": "카마로",
+  "aliases": [
+   "camaro"
+  ],
+  "body": "sports",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 2011,
+  "to": null
+ },
+ {
+  "make": "쉐보레",
+  "model": "콜벳",
+  "aliases": [
+   "corvette",
+   "콜베트"
+  ],
+  "body": "sports",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 1980,
+  "to": null
+ },
+ {
+  "make": "쉐보레",
+  "model": "크루즈",
+  "aliases": [
+   "cruze"
+  ],
+  "body": "semimid",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2008,
+  "to": 2018
+ },
+ {
+  "make": "쉐보레",
+  "model": "라세티",
+  "aliases": [
+   "lacetti",
+   "라세티 프리미어"
+  ],
+  "body": "semimid",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2002,
+  "to": 2011
+ },
+ {
+  "make": "쉐보레",
+  "model": "올란도",
+  "aliases": [
+   "orlando"
+  ],
+  "body": "minivan",
+  "fuels": [
+   "diesel",
+   "gasoline",
+   "lpg"
+  ],
+  "from": 2011,
+  "to": 2018
+ },
+ {
+  "make": "쉐보레",
+  "model": "아베오",
+  "aliases": [
+   "aveo"
+  ],
+  "body": "small",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2011,
+  "to": 2017
+ },
+ {
+  "make": "쉐보레",
+  "model": "캡티바",
+  "aliases": [
+   "captiva"
+  ],
+  "body": "suv",
+  "fuels": [
+   "diesel",
+   "gasoline"
+  ],
+  "from": 2007,
+  "to": 2018
+ },
+ {
+  "make": "쉐보레",
+  "model": "콜로라도",
+  "aliases": [
+   "colorado"
+  ],
+  "body": "pickup",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2019,
+  "to": null
+ },
+ {
+  "make": "쉐보레",
+  "model": "타호",
+  "aliases": [
+   "tahoe"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 2021,
+  "to": null
+ },
+ {
+  "make": "쉐보레",
+  "model": "볼트 EV",
+  "aliases": [
+   "볼트EV",
+   "bolt ev",
+   "볼트"
+  ],
+  "body": "small",
+  "fuels": [
+   "electric"
+  ],
+  "from": 2017,
+  "to": 2023
+ },
+ {
+  "make": "쉐보레",
+  "model": "다마스",
+  "aliases": [
+   "damas"
+  ],
+  "body": "compact",
+  "fuels": [
+   "gasoline",
+   "lpg"
+  ],
+  "from": 1991,
+  "to": 2021
+ },
+ {
+  "make": "쉐보레",
+  "model": "라보",
+  "aliases": [
+   "labo"
+  ],
+  "body": "truck",
+  "fuels": [
+   "gasoline",
+   "lpg"
+  ],
+  "from": 1991,
+  "to": 2021
+ },
+ {
+  "make": "KGM",
+  "model": "렉스턴 스포츠",
+  "aliases": [
+   "렉스턴스포츠",
+   "렉스턴 스포츠 칸",
+   "렉스턴스포츠칸",
+   "칸",
+   "rexton sports"
+  ],
+  "body": "pickup",
+  "fuels": [
+   "diesel"
+  ],
+  "from": 2018,
+  "to": null
+ },
+ {
+  "make": "KGM",
+  "model": "코란도 스포츠",
+  "aliases": [
+   "코란도스포츠",
+   "korando sports"
+  ],
+  "body": "pickup",
+  "fuels": [
+   "diesel"
+  ],
+  "from": 2012,
+  "to": 2018
+ },
+ {
+  "make": "KGM",
+  "model": "액티언 스포츠",
+  "aliases": [
+   "액티언스포츠",
+   "actyon sports"
+  ],
+  "body": "pickup",
+  "fuels": [
+   "diesel"
+  ],
+  "from": 2006,
+  "to": 2012
+ },
+ {
+  "make": "KGM",
+  "model": "무쏘",
+  "aliases": [
+   "무쏘 그랜드",
+   "무쏘 EV",
+   "musso"
+  ],
+  "body": "pickup",
+  "fuels": [
+   "diesel",
+   "electric"
+  ],
+  "from": 2024,
+  "to": null
+ },
+ {
+  "make": "KGM",
+  "model": "코란도 투리스모",
+  "aliases": [
+   "코란도투리스모",
+   "투리스모",
+   "turismo"
+  ],
+  "body": "minivan",
+  "fuels": [
+   "diesel"
+  ],
+  "from": 2013,
+  "to": 2019
+ },
+ {
+  "make": "KGM",
+  "model": "로디우스",
+  "aliases": [
+   "rodius"
+  ],
+  "body": "minivan",
+  "fuels": [
+   "diesel"
+  ],
+  "from": 2004,
+  "to": 2013
+ },
+ {
+  "make": "KGM",
+  "model": "체어맨",
+  "aliases": [
+   "chairman"
+  ],
+  "body": "large",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 1997,
+  "to": 2017
+ },
+ {
+  "make": "KGM",
+  "model": "티볼리 에어",
+  "aliases": [
+   "티볼리에어",
+   "tivoli air"
+  ],
+  "body": "suv_small",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2016,
+  "to": 2020
+ },
+ {
+  "make": "르노코리아",
+  "model": "SM3",
+  "aliases": [
+   "에스엠3"
+  ],
+  "body": "semimid",
+  "fuels": [
+   "gasoline",
+   "electric"
+  ],
+  "from": 2002,
+  "to": 2020
+ },
+ {
+  "make": "르노코리아",
+  "model": "SM5",
+  "aliases": [
+   "에스엠5"
+  ],
+  "body": "sedan",
+  "fuels": [
+   "gasoline",
+   "lpg",
+   "diesel"
+  ],
+  "from": 1998,
+  "to": 2019
+ },
+ {
+  "make": "르노코리아",
+  "model": "SM7",
+  "aliases": [
+   "에스엠7"
+  ],
+  "body": "semilarge",
+  "fuels": [
+   "gasoline",
+   "lpg"
+  ],
+  "from": 2004,
+  "to": 2018
+ },
+ {
+  "make": "르노코리아",
+  "model": "QM3",
+  "aliases": [
+   "큐엠3"
+  ],
+  "body": "suv_small",
+  "fuels": [
+   "diesel",
+   "gasoline"
+  ],
+  "from": 2013,
+  "to": 2020
+ },
+ {
+  "make": "르노코리아",
+  "model": "QM5",
+  "aliases": [
+   "큐엠5"
+  ],
+  "body": "suv_semimid",
+  "fuels": [
+   "diesel",
+   "gasoline"
+  ],
+  "from": 2007,
+  "to": 2016
+ },
+ {
+  "make": "르노코리아",
+  "model": "클리오",
+  "aliases": [
+   "clio"
+  ],
+  "body": "small",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2016,
+  "to": null
+ },
+ {
+  "make": "르노코리아",
+  "model": "조에",
+  "aliases": [
+   "zoe"
+  ],
+  "body": "small",
+  "fuels": [
+   "electric"
+  ],
+  "from": 2016,
+  "to": null
+ },
+ {
+  "make": "테슬라",
+  "model": "사이버트럭",
+  "aliases": [
+   "사이버 트럭",
+   "cybertruck"
+  ],
+  "body": "pickup",
+  "fuels": [
+   "electric"
+  ],
+  "from": 2023,
+  "to": null
+ },
+ {
+  "make": "BMW",
+  "model": "1시리즈",
+  "aliases": [
+   "1 시리즈",
+   "118d"
+  ],
+  "body": "semimid",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2004,
+  "to": null
+ },
+ {
+  "make": "BMW",
+  "model": "2시리즈",
+  "aliases": [
+   "2 시리즈"
+  ],
+  "body": "semimid",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid"
+  ],
+  "from": 2014,
+  "to": null
+ },
+ {
+  "make": "BMW",
+  "model": "4시리즈",
+  "aliases": [
+   "4 시리즈"
+  ],
+  "body": "sports",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2014,
+  "to": null
+ },
+ {
+  "make": "BMW",
+  "model": "8시리즈",
+  "aliases": [
+   "8 시리즈"
+  ],
+  "body": "sports",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 2018,
+  "to": null
+ },
+ {
+  "make": "BMW",
+  "model": "X1",
+  "aliases": [
+   "엑스1"
+  ],
+  "body": "suv_small",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "electric"
+  ],
+  "from": 2010,
+  "to": null
+ },
+ {
+  "make": "BMW",
+  "model": "X2",
+  "aliases": [
+   "엑스2"
+  ],
+  "body": "suv_small",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "electric"
+  ],
+  "from": 2018,
+  "to": null
+ },
+ {
+  "make": "BMW",
+  "model": "X4",
+  "aliases": [
+   "엑스4"
+  ],
+  "body": "suv_semimid",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2014,
+  "to": null
+ },
+ {
+  "make": "BMW",
+  "model": "X6",
+  "aliases": [
+   "엑스6"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2008,
+  "to": null
+ },
+ {
+  "make": "BMW",
+  "model": "X7",
+  "aliases": [
+   "엑스7"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2019,
+  "to": null
+ },
+ {
+  "make": "BMW",
+  "model": "Z4",
+  "aliases": [
+   "지4"
+  ],
+  "body": "sports",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 1989,
+  "to": null
+ },
+ {
+  "make": "BMW",
+  "model": "M3",
+  "aliases": [
+   "엠3"
+  ],
+  "body": "sports",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 1986,
+  "to": null
+ },
+ {
+  "make": "BMW",
+  "model": "M4",
+  "aliases": [
+   "엠4"
+  ],
+  "body": "sports",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 2014,
+  "to": null
+ },
+ {
+  "make": "BMW",
+  "model": "i4",
+  "aliases": [
+   "아이4"
+  ],
+  "body": "semilarge",
+  "fuels": [
+   "electric"
+  ],
+  "from": 2022,
+  "to": null
+ },
+ {
+  "make": "BMW",
+  "model": "iX",
+  "aliases": [
+   "아이엑스"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "electric"
+  ],
+  "from": 2021,
+  "to": null
+ },
+ {
+  "make": "BMW",
+  "model": "iX3",
+  "aliases": [
+   "아이엑스3"
+  ],
+  "body": "suv",
+  "fuels": [
+   "electric"
+  ],
+  "from": 2021,
+  "to": null
+ },
+ {
+  "make": "벤츠",
+  "model": "A클래스",
+  "aliases": [
+   "A 클래스",
+   "에이클래스"
+  ],
+  "body": "semimid",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2012,
+  "to": null
+ },
+ {
+  "make": "벤츠",
+  "model": "CLA",
+  "aliases": [
+   "씨엘에이"
+  ],
+  "body": "sedan",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2013,
+  "to": null
+ },
+ {
+  "make": "벤츠",
+  "model": "CLS",
+  "aliases": [
+   "씨엘에스"
+  ],
+  "body": "semilarge",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2005,
+  "to": null
+ },
+ {
+  "make": "벤츠",
+  "model": "GLA",
+  "aliases": [
+   "지엘에이"
+  ],
+  "body": "suv_small",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2014,
+  "to": null
+ },
+ {
+  "make": "벤츠",
+  "model": "GLB",
+  "aliases": [
+   "지엘비"
+  ],
+  "body": "suv_semimid",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2020,
+  "to": null
+ },
+ {
+  "make": "벤츠",
+  "model": "GLS",
+  "aliases": [
+   "지엘에스"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2016,
+  "to": null
+ },
+ {
+  "make": "벤츠",
+  "model": "G클래스",
+  "aliases": [
+   "G 클래스",
+   "지바겐",
+   "지바젠",
+   "G바겐",
+   "G-class",
+   "g wagon"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 1979,
+  "to": null
+ },
+ {
+  "make": "벤츠",
+  "model": "EQE",
+  "aliases": [
+   "이큐이"
+  ],
+  "body": "semilarge",
+  "fuels": [
+   "electric"
+  ],
+  "from": 2022,
+  "to": null
+ },
+ {
+  "make": "벤츠",
+  "model": "EQS",
+  "aliases": [
+   "이큐에스"
+  ],
+  "body": "large",
+  "fuels": [
+   "electric"
+  ],
+  "from": 2021,
+  "to": null
+ },
+ {
+  "make": "벤츠",
+  "model": "EQA",
+  "aliases": [
+   "이큐에이"
+  ],
+  "body": "suv_small",
+  "fuels": [
+   "electric"
+  ],
+  "from": 2021,
+  "to": null
+ },
+ {
+  "make": "벤츠",
+  "model": "EQB",
+  "aliases": [
+   "이큐비"
+  ],
+  "body": "suv_semimid",
+  "fuels": [
+   "electric"
+  ],
+  "from": 2021,
+  "to": null
+ },
+ {
+  "make": "벤츠",
+  "model": "AMG GT",
+  "aliases": [
+   "AMG GT",
+   "에이엠지 GT",
+   "amg gt"
+  ],
+  "body": "sports",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 2015,
+  "to": null
+ },
+ {
+  "make": "아우디",
+  "model": "A3",
+  "aliases": [
+   "에이3"
+  ],
+  "body": "semimid",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 1996,
+  "to": null
+ },
+ {
+  "make": "아우디",
+  "model": "A5",
+  "aliases": [
+   "에이5"
+  ],
+  "body": "sedan",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2007,
+  "to": null
+ },
+ {
+  "make": "아우디",
+  "model": "A7",
+  "aliases": [
+   "에이7"
+  ],
+  "body": "semilarge",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2010,
+  "to": null
+ },
+ {
+  "make": "아우디",
+  "model": "A8",
+  "aliases": [
+   "에이8"
+  ],
+  "body": "large",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 1994,
+  "to": null
+ },
+ {
+  "make": "아우디",
+  "model": "Q2",
+  "aliases": [
+   "큐2"
+  ],
+  "body": "suv_small",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2016,
+  "to": null
+ },
+ {
+  "make": "아우디",
+  "model": "Q3",
+  "aliases": [
+   "큐3"
+  ],
+  "body": "suv_small",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2011,
+  "to": null
+ },
+ {
+  "make": "아우디",
+  "model": "Q7",
+  "aliases": [
+   "큐7"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2005,
+  "to": null
+ },
+ {
+  "make": "아우디",
+  "model": "Q8",
+  "aliases": [
+   "큐8"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2018,
+  "to": null
+ },
+ {
+  "make": "아우디",
+  "model": "TT",
+  "aliases": [
+   "티티"
+  ],
+  "body": "sports",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 1998,
+  "to": 2023
+ },
+ {
+  "make": "아우디",
+  "model": "R8",
+  "aliases": [
+   "알8"
+  ],
+  "body": "sports",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 2006,
+  "to": 2024
+ },
+ {
+  "make": "아우디",
+  "model": "e-tron",
+  "aliases": [
+   "이트론",
+   "e트론",
+   "etron",
+   "이-트론"
+  ],
+  "body": "suv",
+  "fuels": [
+   "electric"
+  ],
+  "from": 2018,
+  "to": null
+ },
+ {
+  "make": "폭스바겐",
+  "model": "파사트",
+  "aliases": [
+   "passat"
+  ],
+  "body": "sedan",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 1973,
+  "to": null
+ },
+ {
+  "make": "폭스바겐",
+  "model": "아테온",
+  "aliases": [
+   "arteon"
+  ],
+  "body": "semilarge",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2017,
+  "to": null
+ },
+ {
+  "make": "폭스바겐",
+  "model": "폴로",
+  "aliases": [
+   "polo"
+  ],
+  "body": "small",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 1975,
+  "to": null
+ },
+ {
+  "make": "폭스바겐",
+  "model": "제타",
+  "aliases": [
+   "jetta"
+  ],
+  "body": "semimid",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 1979,
+  "to": null
+ },
+ {
+  "make": "폭스바겐",
+  "model": "투아렉",
+  "aliases": [
+   "touareg"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2002,
+  "to": null
+ },
+ {
+  "make": "폭스바겐",
+  "model": "티록",
+  "aliases": [
+   "t-roc",
+   "troc"
+  ],
+  "body": "suv_small",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2017,
+  "to": null
+ },
+ {
+  "make": "폭스바겐",
+  "model": "ID.4",
+  "aliases": [
+   "아이디4",
+   "id4"
+  ],
+  "body": "suv_semimid",
+  "fuels": [
+   "electric"
+  ],
+  "from": 2021,
+  "to": null
+ },
+ {
+  "make": "폭스바겐",
+  "model": "비틀",
+  "aliases": [
+   "beetle"
+  ],
+  "body": "small",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 1998,
+  "to": 2019
+ },
+ {
+  "make": "도요타",
+  "model": "프리우스",
+  "aliases": [
+   "prius"
+  ],
+  "body": "semimid",
+  "fuels": [
+   "hybrid"
+  ],
+  "from": 1997,
+  "to": null
+ },
+ {
+  "make": "도요타",
+  "model": "라브4",
+  "aliases": [
+   "RAV4",
+   "rav4",
+   "라브포"
+  ],
+  "body": "suv_semimid",
+  "fuels": [
+   "gasoline",
+   "hybrid"
+  ],
+  "from": 1994,
+  "to": null
+ },
+ {
+  "make": "도요타",
+  "model": "시에나",
+  "aliases": [
+   "sienna"
+  ],
+  "body": "minivan",
+  "fuels": [
+   "gasoline",
+   "hybrid"
+  ],
+  "from": 1997,
+  "to": null
+ },
+ {
+  "make": "도요타",
+  "model": "하이랜더",
+  "aliases": [
+   "highlander"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "gasoline",
+   "hybrid"
+  ],
+  "from": 2000,
+  "to": null
+ },
+ {
+  "make": "도요타",
+  "model": "크라운",
+  "aliases": [
+   "crown"
+  ],
+  "body": "semilarge",
+  "fuels": [
+   "gasoline",
+   "hybrid"
+  ],
+  "from": 1955,
+  "to": null
+ },
+ {
+  "make": "도요타",
+  "model": "아발론",
+  "aliases": [
+   "avalon"
+  ],
+  "body": "semilarge",
+  "fuels": [
+   "gasoline",
+   "hybrid"
+  ],
+  "from": 1994,
+  "to": null
+ },
+ {
+  "make": "도요타",
+  "model": "수프라",
+  "aliases": [
+   "supra"
+  ],
+  "body": "sports",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 2019,
+  "to": null
+ },
+ {
+  "make": "도요타",
+  "model": "코롤라",
+  "aliases": [
+   "카롤라",
+   "corolla"
+  ],
+  "body": "semimid",
+  "fuels": [
+   "gasoline",
+   "hybrid"
+  ],
+  "from": 1966,
+  "to": null
+ },
+ {
+  "make": "도요타",
+  "model": "C-HR",
+  "aliases": [
+   "씨에이치알",
+   "chr"
+  ],
+  "body": "suv_small",
+  "fuels": [
+   "gasoline",
+   "hybrid"
+  ],
+  "from": 2016,
+  "to": null
+ },
+ {
+  "make": "도요타",
+  "model": "알파드",
+  "aliases": [
+   "alphard"
+  ],
+  "body": "minivan",
+  "fuels": [
+   "gasoline",
+   "hybrid"
+  ],
+  "from": 2002,
+  "to": null
+ },
+ {
+  "make": "렉서스",
+  "model": "NX",
+  "aliases": [
+   "엔엑스"
+  ],
+  "body": "suv_semimid",
+  "fuels": [
+   "gasoline",
+   "hybrid"
+  ],
+  "from": 2014,
+  "to": null
+ },
+ {
+  "make": "렉서스",
+  "model": "UX",
+  "aliases": [
+   "유엑스"
+  ],
+  "body": "suv_small",
+  "fuels": [
+   "gasoline",
+   "hybrid"
+  ],
+  "from": 2018,
+  "to": null
+ },
+ {
+  "make": "렉서스",
+  "model": "LS",
+  "aliases": [
+   "엘에스"
+  ],
+  "body": "large",
+  "fuels": [
+   "gasoline",
+   "hybrid"
+  ],
+  "from": 1989,
+  "to": null
+ },
+ {
+  "make": "렉서스",
+  "model": "LC",
+  "aliases": [
+   "엘씨"
+  ],
+  "body": "sports",
+  "fuels": [
+   "gasoline",
+   "hybrid"
+  ],
+  "from": 2017,
+  "to": null
+ },
+ {
+  "make": "렉서스",
+  "model": "IS",
+  "aliases": [
+   "아이에스"
+  ],
+  "body": "sedan",
+  "fuels": [
+   "gasoline",
+   "hybrid"
+  ],
+  "from": 1998,
+  "to": null
+ },
+ {
+  "make": "혼다",
+  "model": "어코드",
+  "aliases": [
+   "accord"
+  ],
+  "body": "sedan",
+  "fuels": [
+   "gasoline",
+   "hybrid"
+  ],
+  "from": 1976,
+  "to": null
+ },
+ {
+  "make": "혼다",
+  "model": "CR-V",
+  "aliases": [
+   "씨알브이",
+   "crv"
+  ],
+  "body": "suv_semimid",
+  "fuels": [
+   "gasoline",
+   "hybrid"
+  ],
+  "from": 1995,
+  "to": null
+ },
+ {
+  "make": "혼다",
+  "model": "시빅",
+  "aliases": [
+   "civic"
+  ],
+  "body": "semimid",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 1972,
+  "to": null
+ },
+ {
+  "make": "혼다",
+  "model": "오딧세이",
+  "aliases": [
+   "오디세이",
+   "odyssey"
+  ],
+  "body": "minivan",
+  "fuels": [
+   "gasoline",
+   "hybrid"
+  ],
+  "from": 1994,
+  "to": null
+ },
+ {
+  "make": "혼다",
+  "model": "파일럿",
+  "aliases": [
+   "pilot"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 2002,
+  "to": null
+ },
+ {
+  "make": "혼다",
+  "model": "HR-V",
+  "aliases": [
+   "에이치알브이",
+   "hrv"
+  ],
+  "body": "suv_small",
+  "fuels": [
+   "gasoline",
+   "hybrid"
+  ],
+  "from": 2015,
+  "to": null
+ },
+ {
+  "make": "닛산",
+  "model": "알티마",
+  "aliases": [
+   "altima"
+  ],
+  "body": "sedan",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 1992,
+  "to": null
+ },
+ {
+  "make": "닛산",
+  "model": "맥시마",
+  "aliases": [
+   "maxima"
+  ],
+  "body": "semilarge",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 1981,
+  "to": null
+ },
+ {
+  "make": "닛산",
+  "model": "로그",
+  "aliases": [
+   "rogue",
+   "엑스트레일",
+   "x-trail"
+  ],
+  "body": "suv_semimid",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 2007,
+  "to": null
+ },
+ {
+  "make": "닛산",
+  "model": "GT-R",
+  "aliases": [
+   "지티알",
+   "gtr"
+  ],
+  "body": "sports",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 2007,
+  "to": null
+ },
+ {
+  "make": "닛산",
+  "model": "패스파인더",
+  "aliases": [
+   "pathfinder"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 1985,
+  "to": null
+ },
+ {
+  "make": "마쯔다",
+  "model": "MX-5",
+  "aliases": [
+   "미아타",
+   "miata",
+   "mx5",
+   "엠엑스5"
+  ],
+  "body": "sports",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 1989,
+  "to": null
+ },
+ {
+  "make": "마쯔다",
+  "model": "CX-5",
+  "aliases": [
+   "씨엑스5",
+   "cx5"
+  ],
+  "body": "suv_semimid",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2012,
+  "to": null
+ },
+ {
+  "make": "마쯔다",
+  "model": "마쯔다3",
+  "aliases": [
+   "mazda3",
+   "마즈다3",
+   "마쯔다 3"
+  ],
+  "body": "semimid",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2003,
+  "to": null
+ },
+ {
+  "make": "미니",
+  "model": "쿠퍼",
+  "aliases": [
+   "미니쿠퍼",
+   "mini cooper",
+   "cooper"
+  ],
+  "body": "small",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "electric"
+  ],
+  "from": 2001,
+  "to": null
+ },
+ {
+  "make": "미니",
+  "model": "컨트리맨",
+  "aliases": [
+   "countryman"
+  ],
+  "body": "suv_small",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2010,
+  "to": null
+ },
+ {
+  "make": "볼보",
+  "model": "S60",
+  "aliases": [
+   "에스60"
+  ],
+  "body": "sedan",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid"
+  ],
+  "from": 2000,
+  "to": null
+ },
+ {
+  "make": "볼보",
+  "model": "S90",
+  "aliases": [
+   "에스90"
+  ],
+  "body": "semilarge",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid"
+  ],
+  "from": 2016,
+  "to": null
+ },
+ {
+  "make": "볼보",
+  "model": "V60",
+  "aliases": [
+   "브이60"
+  ],
+  "body": "semimid",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid"
+  ],
+  "from": 2010,
+  "to": null
+ },
+ {
+  "make": "볼보",
+  "model": "C40",
+  "aliases": [
+   "씨40"
+  ],
+  "body": "suv_small",
+  "fuels": [
+   "electric"
+  ],
+  "from": 2021,
+  "to": null
+ },
+ {
+  "make": "포르쉐",
+  "model": "911",
+  "aliases": [
+   "구일일",
+   "nine eleven",
+   "포르쉐911",
+   "카레라"
+  ],
+  "body": "sports",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 1963,
+  "to": null
+ },
+ {
+  "make": "포르쉐",
+  "model": "718 박스터",
+  "aliases": [
+   "박스터",
+   "boxster",
+   "718박스터"
+  ],
+  "body": "sports",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 1996,
+  "to": null
+ },
+ {
+  "make": "포르쉐",
+  "model": "718 카이맨",
+  "aliases": [
+   "카이맨",
+   "cayman",
+   "718카이맨"
+  ],
+  "body": "sports",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 2005,
+  "to": null
+ },
+ {
+  "make": "포르쉐",
+  "model": "카이엔",
+  "aliases": [
+   "cayenne"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "gasoline",
+   "hybrid"
+  ],
+  "from": 2002,
+  "to": null
+ },
+ {
+  "make": "포르쉐",
+  "model": "마칸",
+  "aliases": [
+   "macan"
+  ],
+  "body": "suv_semimid",
+  "fuels": [
+   "gasoline",
+   "electric"
+  ],
+  "from": 2014,
+  "to": null
+ },
+ {
+  "make": "포르쉐",
+  "model": "파나메라",
+  "aliases": [
+   "panamera"
+  ],
+  "body": "semilarge",
+  "fuels": [
+   "gasoline",
+   "hybrid"
+  ],
+  "from": 2009,
+  "to": null
+ },
+ {
+  "make": "포르쉐",
+  "model": "타이칸",
+  "aliases": [
+   "taycan"
+  ],
+  "body": "semilarge",
+  "fuels": [
+   "electric"
+  ],
+  "from": 2019,
+  "to": null
+ },
+ {
+  "make": "랜드로버",
+  "model": "디펜더",
+  "aliases": [
+   "defender"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid"
+  ],
+  "from": 1983,
+  "to": null
+ },
+ {
+  "make": "랜드로버",
+  "model": "레인지로버",
+  "aliases": [
+   "range rover",
+   "레인지 로버"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid"
+  ],
+  "from": 1970,
+  "to": null
+ },
+ {
+  "make": "랜드로버",
+  "model": "레인지로버 스포츠",
+  "aliases": [
+   "range rover sport",
+   "레인지로버스포츠"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid"
+  ],
+  "from": 2005,
+  "to": null
+ },
+ {
+  "make": "랜드로버",
+  "model": "레인지로버 이보크",
+  "aliases": [
+   "이보크",
+   "evoque"
+  ],
+  "body": "suv_semimid",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid"
+  ],
+  "from": 2011,
+  "to": null
+ },
+ {
+  "make": "랜드로버",
+  "model": "레인지로버 벨라",
+  "aliases": [
+   "벨라",
+   "velar"
+  ],
+  "body": "suv",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid"
+  ],
+  "from": 2017,
+  "to": null
+ },
+ {
+  "make": "랜드로버",
+  "model": "디스커버리",
+  "aliases": [
+   "discovery"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 1989,
+  "to": null
+ },
+ {
+  "make": "재규어",
+  "model": "F-타입",
+  "aliases": [
+   "에프타입",
+   "f-type",
+   "ftype"
+  ],
+  "body": "sports",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 2013,
+  "to": null
+ },
+ {
+  "make": "재규어",
+  "model": "XE",
+  "aliases": [
+   "엑스이"
+  ],
+  "body": "sedan",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2015,
+  "to": null
+ },
+ {
+  "make": "재규어",
+  "model": "XF",
+  "aliases": [
+   "엑스에프"
+  ],
+  "body": "semilarge",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2008,
+  "to": null
+ },
+ {
+  "make": "재규어",
+  "model": "F-페이스",
+  "aliases": [
+   "에프페이스",
+   "f-pace"
+  ],
+  "body": "suv",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2016,
+  "to": null
+ },
+ {
+  "make": "재규어",
+  "model": "I-페이스",
+  "aliases": [
+   "아이페이스",
+   "i-pace"
+  ],
+  "body": "suv",
+  "fuels": [
+   "electric"
+  ],
+  "from": 2018,
+  "to": null
+ },
+ {
+  "make": "포드",
+  "model": "머스탱",
+  "aliases": [
+   "머스탱 GT",
+   "머스탱GT",
+   "mustang",
+   "머스탱 에코부스트"
+  ],
+  "body": "sports",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 1964,
+  "to": null
+ },
+ {
+  "make": "포드",
+  "model": "머스탱 마하-E",
+  "aliases": [
+   "머스탱 마하E",
+   "마하e",
+   "마하-e",
+   "mach-e",
+   "mach e"
+  ],
+  "body": "suv_semimid",
+  "fuels": [
+   "electric"
+  ],
+  "from": 2021,
+  "to": null
+ },
+ {
+  "make": "포드",
+  "model": "익스플로러",
+  "aliases": [
+   "explorer"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid"
+  ],
+  "from": 1990,
+  "to": null
+ },
+ {
+  "make": "포드",
+  "model": "브롱코",
+  "aliases": [
+   "bronco"
+  ],
+  "body": "suv",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 2021,
+  "to": null
+ },
+ {
+  "make": "포드",
+  "model": "F-150",
+  "aliases": [
+   "F150",
+   "에프150",
+   "f-150",
+   "f150 라이트닝",
+   "라이트닝"
+  ],
+  "body": "pickup",
+  "fuels": [
+   "gasoline",
+   "hybrid",
+   "electric"
+  ],
+  "from": 1948,
+  "to": null
+ },
+ {
+  "make": "포드",
+  "model": "레인저",
+  "aliases": [
+   "ranger"
+  ],
+  "body": "pickup",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 1983,
+  "to": null
+ },
+ {
+  "make": "포드",
+  "model": "쿠가",
+  "aliases": [
+   "이스케이프",
+   "kuga",
+   "escape"
+  ],
+  "body": "suv_semimid",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid"
+  ],
+  "from": 2000,
+  "to": null
+ },
+ {
+  "make": "포드",
+  "model": "에지",
+  "aliases": [
+   "edge"
+  ],
+  "body": "suv",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2006,
+  "to": null
+ },
+ {
+  "make": "링컨",
+  "model": "내비게이터",
+  "aliases": [
+   "navigator"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 1997,
+  "to": null
+ },
+ {
+  "make": "링컨",
+  "model": "에비에이터",
+  "aliases": [
+   "aviator"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "gasoline",
+   "hybrid"
+  ],
+  "from": 2002,
+  "to": null
+ },
+ {
+  "make": "링컨",
+  "model": "코르세어",
+  "aliases": [
+   "corsair"
+  ],
+  "body": "suv_semimid",
+  "fuels": [
+   "gasoline",
+   "hybrid"
+  ],
+  "from": 2019,
+  "to": null
+ },
+ {
+  "make": "닷지",
+  "model": "챌린저",
+  "aliases": [
+   "challenger",
+   "챌린저 SRT",
+   "헬캣"
+  ],
+  "body": "sports",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 1970,
+  "to": null
+ },
+ {
+  "make": "닷지",
+  "model": "차저",
+  "aliases": [
+   "charger",
+   "차져",
+   "챠저"
+  ],
+  "body": "sports",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 2006,
+  "to": null
+ },
+ {
+  "make": "램",
+  "model": "1500",
+  "aliases": [
+   "램 1500",
+   "ram 1500",
+   "램1500",
+   "dodge ram"
+  ],
+  "body": "pickup",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 1981,
+  "to": null
+ },
+ {
+  "make": "캐딜락",
+  "model": "에스컬레이드",
+  "aliases": [
+   "escalade"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 1998,
+  "to": null
+ },
+ {
+  "make": "캐딜락",
+  "model": "CT5",
+  "aliases": [
+   "씨티5"
+  ],
+  "body": "semilarge",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 2019,
+  "to": null
+ },
+ {
+  "make": "캐딜락",
+  "model": "XT5",
+  "aliases": [
+   "엑스티5"
+  ],
+  "body": "suv",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 2016,
+  "to": null
+ },
+ {
+  "make": "캐딜락",
+  "model": "XT4",
+  "aliases": [
+   "엑스티4"
+  ],
+  "body": "suv_small",
+  "fuels": [
+   "gasoline"
+  ],
+  "from": 2018,
+  "to": null
+ },
+ {
+  "make": "캐딜락",
+  "model": "리릭",
+  "aliases": [
+   "lyriq"
+  ],
+  "body": "suv",
+  "fuels": [
+   "electric"
+  ],
+  "from": 2022,
+  "to": null
+ },
+ {
+  "make": "지프",
+  "model": "랭글러",
+  "aliases": [
+   "wrangler",
+   "랭글러 루비콘",
+   "루비콘"
+  ],
+  "body": "suv",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid"
+  ],
+  "from": 1987,
+  "to": null
+ },
+ {
+  "make": "지프",
+  "model": "그랜드 체로키",
+  "aliases": [
+   "그랜드체로키",
+   "grand cherokee",
+   "체로키"
+  ],
+  "body": "suv_large",
+  "fuels": [
+   "gasoline",
+   "diesel",
+   "hybrid"
+  ],
+  "from": 1992,
+  "to": null
+ },
+ {
+  "make": "지프",
+  "model": "레니게이드",
+  "aliases": [
+   "renegade"
+  ],
+  "body": "suv_small",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2014,
+  "to": null
+ },
+ {
+  "make": "지프",
+  "model": "컴패스",
+  "aliases": [
+   "compass"
+  ],
+  "body": "suv_semimid",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2006,
+  "to": null
+ },
+ {
+  "make": "지프",
+  "model": "글래디에이터",
+  "aliases": [
+   "gladiator"
+  ],
+  "body": "pickup",
+  "fuels": [
+   "gasoline",
+   "diesel"
+  ],
+  "from": 2019,
+  "to": null
+ },
+ {
+  "make": "폴스타",
+  "model": "폴스타 2",
+  "aliases": [
+   "폴스타2",
+   "polestar 2",
+   "polestar2"
+  ],
+  "body": "semilarge",
+  "fuels": [
+   "electric"
+  ],
+  "from": 2020,
+  "to": null
+ }
+]

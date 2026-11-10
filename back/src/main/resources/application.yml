@@ -1,0 +1,41 @@
+server:
+  port: 8080
+  forward-headers-strategy: framework
+  error:
+    include-message: always
+
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/mycar}
+    username: ${SPRING_DATASOURCE_USERNAME:mycar}
+    password: ${SPRING_DATASOURCE_PASSWORD:mycar}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+
+mycar:
+  chat:
+    limit:
+      # 최근 60초 안에 보낼 수 있는 채팅 메시지 수(로그인 사용자는 계정, 게스트는 IP 기준). 이 수를 넘으면 막는다.
+      per-minute: ${CHAT_LIMIT_PER_MINUTE:6}
+      # 하루(한국 시간 0시 초기화)에 보낼 수 있는 메시지 수
+      daily-user: ${CHAT_DAILY_USER:60}
+      daily-guest: ${CHAT_DAILY_GUEST:20}
+  openai:
+    api-key: ${OPENAI_API_KEY:}
+    model: ${OPENAI_MODEL:gpt-4o-mini}
+    base-url: https://api.openai.com/v1
+    reasoning-effort: ${OPENAI_REASONING_EFFORT:}
+
+  auth:
+    # 세션 토큰 서명 키. 32자 이상. 비우면 서버 시작 때마다 새로 만들어 로그인이 풀린다.
+    jwt-secret: ${JWT_SECRET:}
+    session-days: 7
+    # Argon2id 설정 (OWASP 최소 권장: 메모리 19MiB, 반복 2, 병렬 1)
+    argon2:
+      memory-kib: ${ARGON2_MEMORY_KIB:19456}
+      iterations: ${ARGON2_ITERATIONS:2}
+      parallelism: 1
