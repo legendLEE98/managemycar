@@ -77,6 +77,11 @@ final class ToolDefs {
             fn("set_commute", "하루 출퇴근 총 주행거리(왕복)를 저장한다. 사용자가 이 차로 출퇴근하지 않는다고 하면(소장용·주말용 등) 0으로 저장한다.",
                     Map.of("km_per_day", integer("하루 출퇴근 총 거리(km, 왕복 합계). 출퇴근을 하지 않으면 0")),
                     List.of("km_per_day")),
+            fn("add_schedule", "캘린더에 일정(정비소 예약, 보험 갱신, 검사 등)을 추가한다. 날짜는 반드시 YYYY-MM-DD로, 시스템 프롬프트의 '날짜 도우미' 표를 보고 정한다.",
+                    Map.of(
+                            "date", str("일정 날짜(YYYY-MM-DD). 오늘 이후"),
+                            "title", str("일정 제목(60자 이내). 예: 정비소 예약, 자동차 검사")),
+                    List.of("date", "title")),
             fn("set_service_interval", "소모품 교체 주기를 사용자가 원하는 값으로 바꾼다.",
                     Map.of(
                             "item", pick(ITEMS, ITEM_DESC),

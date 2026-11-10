@@ -40,6 +40,7 @@ public final class StateTools {
             case "set_odometer" -> setOdometer(a, s, today);
             case "set_commute" -> setCommute(a, s, today);
             case "set_service_interval" -> setInterval(a, s, today);
+            case "add_schedule" -> addSchedule(a, s, today);
             default -> Result.failure("알 수 없는 도구입니다.");
         };
     }
@@ -240,6 +241,27 @@ public final class StateTools {
         s.commute.kmPerDay = v;
         String msg = v == 0 ? "출퇴근 안 함으로 설정" : "출퇴근 하루 " + v + "km로 설정";
         s.addEvent(today, "commute", msg);
+        return Result.success(msg);
+    }
+
+    private static Result addSchedule(JsonNode a, CarState s, LocalDate today) {
+        String title = CarState.clip(text(a, "title"), 60);
+        if (title == null) return Result.failure("일정 제목이 없습니다. 무슨 일정인지 사용자에게 물어보세요.");
+        String d = CarState.date(text(a, "date"));
+        if (d == null) return Result.failure("날짜를 알 수 없습니다. 사용자에게 날짜를 물어보세요.");
+        LocalDate date = LocalDate.parse(d);
+        if (date.isBefore(today)) return Result.failure("이미 지난 날짜입니다. 오늘 이후 날짜인지 사용자에게 확인하세요.");
+        if (date.isAfter(today.plusYears(3))) return Result.failure("너무 먼 날짜입니다. 날짜를 다시 확인하세요.");
+        if (s.schedules.size() >= CarState.MAX_SCHEDULES) return Result.failure("일정이 너무 많습니다. 캘린더에서 지난 일정을 삭제해 달라고 안내하세요.");
+        boolean dup = s.schedules.stream().anyMatch(x -> d.equals(x.date) && title.equals(x.title));
+        if (dup) return Result.success("이미 같은 일정이 있어요: " + d + " " + title);
+        CarState.Schedule x = new CarState.Schedule();
+        x.id = java.util.UUID.randomUUID().toString().substring(0, 8);
+        x.date = d;
+        x.title = title;
+        s.schedules.add(x);
+        String msg = "일정 추가: " + d + " " + title;
+        s.addEvent(today, "schedule", msg);
         return Result.success(msg);
     }
 

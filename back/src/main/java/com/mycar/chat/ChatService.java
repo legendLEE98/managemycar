@@ -116,6 +116,9 @@ public class ChatService {
                 너는 차량 관리 앱 내차일기의 어시스턴트다. 항상 짧고 친근한 한국어로 답한다.
                 오늘 날짜: %s
 
+                날짜 도우미(상대 날짜는 이 표로만 계산한다. 직접 계산하지 않는다):
+                %s
+
                 규칙:
                 - 사용자가 말한 사실만 도구로 반영한다. 말하지 않은 값은 추측하지 않는다.
                 - 숫자 계산(주행거리 합산, 연비, 남은 거리)은 직접 하지 않는다. 도구와 아래 상태 값을 근거로 한다.
@@ -151,15 +154,16 @@ public class ChatService {
                 - 사용자가 엑셀·파일로 내보내기/다운로드를 요청하면 export_excel 도구를 호출한다. scope는 기본이 all(등록한 모든 차량)이다. 사용자가 '이 차', '지금 차량', '선택한 차량'처럼 한 대만 가리킬 때만 current로 한다. 특별한 말이 없으면 반드시 all이다.
                   · 파일은 내가 직접 줄 수 없고, 대화창에 나타나는 '엑셀 파일 받기' 버튼을 누르면 내려받아진다고 안내한다.
                 - 사용자가 이 차로 출퇴근하지 않는다고 하면(소장용·주말용 등) set_commute를 km_per_day=0으로 호출해 "출퇴근 안 함"으로 저장한다. 거절하지 않는다.
-                - 기록 도구(log_trip, log_fuel, log_service, set_odometer, set_commute, set_service_interval)는 사용자가 실제로 한 일이나 바꾸려는 값을 말했을 때만 호출한다. 질문·조회에는 절대 호출하지 않는다.
+                - 기록 도구(log_trip, log_fuel, log_service, set_odometer, set_commute, set_service_interval, add_schedule)는 사용자가 실제로 한 일이나 바꾸려는 값을 말했을 때만 호출한다. 질문·조회에는 절대 호출하지 않는다.
                   · 교체했다고 했는데 시점이 불분명하면(예: "엔진오일 갈았어") 기록하지 말고 언제, 몇 km에서 교체했는지 먼저 묻는다. 방금·오늘이라고 분명히 말했을 때만 just_now를 쓴다.
+                - 사용자가 일정·예약을 캘린더에 넣어 달라고 하면 add_schedule을 호출한다. "다음 주 금요일"처럼 상대적인 날짜는 위 날짜 도우미 표에서 찾아 YYYY-MM-DD로 넣는다(표에 없을 만큼 먼 날짜는 날짜를 되묻는다). 날짜나 제목이 불분명하면 먼저 묻는다. 일정 삭제는 캘린더의 × 버튼으로 하도록 안내한다.
                 - 차량과 무관한 요청은 정중히 사양한다.
 
                 현재 저장된 차량 상태(JSON): %s
 
                 소모품 상태(서버가 계산한 값. 이 표를 그대로 읽어서 답한다):
                 %s
-                """.formatted(ctx.today, snapshot.toString(), ServiceStatus.describe(ctx.state, ctx.today).stripTrailing().replace("\n", "\n                "));
+                """.formatted(ctx.today, dateHelper(ctx.today), snapshot.toString(), ServiceStatus.describe(ctx.state, ctx.today).stripTrailing().replace("\n", "\n                "));
     }
 
     // ---- 키 없을 때 ----
@@ -171,5 +175,20 @@ public class ChatService {
         ctx.state.vehicle.bodyType = bt.wire();
         ctx.changes.add("차급 " + bt.label + "로 변경");
         return "차체를 바꿨어요.";
+    }
+
+    /** 오늘부터 3주(21일)의 날짜·요일 표. 상대 날짜("다음 주 금요일")를 모델이 직접 계산하지 않게 한다. */
+    static String dateHelper(LocalDate today) {
+        String[] w = {"월", "화", "수", "목", "금", "토", "일"};
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 21; i++) {
+            LocalDate d = today.plusDays(i);
+            String rel = i == 0 ? "오늘" : i == 1 ? "내일" : i == 2 ? "모레" : "";
+            long weeks = java.time.temporal.ChronoUnit.WEEKS.between(today.with(java.time.DayOfWeek.MONDAY), d.with(java.time.DayOfWeek.MONDAY));
+            String wk = weeks == 0 ? "이번 주" : weeks == 1 ? "다음 주" : weeks == 2 ? "다다음 주" : "";
+            sb.append(d).append('(').append(w[d.getDayOfWeek().getValue() - 1]).append(')')
+              .append(' ').append(wk).append(rel.isEmpty() ? "" : " " + rel).append("; ");
+        }
+        return sb.toString().stripTrailing();
     }
 }
