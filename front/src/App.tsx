@@ -535,9 +535,9 @@ export default function App() {
 
       <footer className="bottom">
         <ChatBox onSend={send} disabled={pending} draft={draft} locked={locked} />
-        {usage && (
-          <p className={`usage-line ${locked ? 'full' : ''}`}>
-            오늘 {usedToday}/{usage.limit}회
+        {usage && locked && (
+          <p className="usage-line full">
+            오늘 대화 한도를 모두 사용했어요
             {!usage.loggedIn && (
               <>
                 {' · '}
