@@ -62,9 +62,6 @@ export default function AuthModal({ initialMode, onClose, onDone }: Props) {
           <button type="button" className="naver-btn" disabled title="네이버 로그인은 준비 중이에요">
             <span className="naver-n">N</span> 네이버로 계속하기 <em>준비 중</em>
           </button>
-          <p className="field-note neutral">
-            네이버 로그인은 곧 연결할 예정이에요. 지금은 임시로 이메일 회원가입을 사용해요.
-          </p>
 
           <label className="field">
             <span className="field-label">이메일</span>
@@ -97,11 +94,6 @@ export default function AuthModal({ initialMode, onClose, onDone }: Props) {
           </label>
 
           {error && <div className="editor-error" role="alert">{error}</div>}
-          <p className="field-note neutral">
-            {mode === 'login'
-              ? '로그인하면 계정에 저장된 차량을 불러오고, 이 브라우저에서 입력한 차량은 지우지 않고 계정에 합쳐져요. 합친 뒤에는 이 브라우저에 따로 남기지 않아요. (차량은 최대 5대)'
-              : '가입하면 지금 이 브라우저의 내 차 정보가 계정에 저장돼요. 비밀번호는 암호화(Argon2)되어 저장돼요.'}
-          </p>
         </div>
 
         <footer className="modal-foot actions">
