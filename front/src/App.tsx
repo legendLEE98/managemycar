@@ -476,7 +476,7 @@ export default function App() {
         </div>
       )}
       {tabNow === 'shops' && (
-        <div className="page-body">
+        <div className="page-body fit">
           <ShopsMap />
         </div>
       )}
