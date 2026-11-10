@@ -35,7 +35,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public UserDto login(@Valid @RequestBody LoginRequest req, HttpServletRequest http, HttpServletResponse res) {
-        AppUser u = auth.login(req, http.getRemoteAddr());
+        AppUser u = auth.login(req, ClientIp.of(http));
         setSession(res, http, u.getId());
         return AuthService.dto(u);
     }

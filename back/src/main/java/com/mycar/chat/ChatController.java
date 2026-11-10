@@ -32,7 +32,7 @@ public class ChatController {
     }
 
     private static String subject(Authentication auth, HttpServletRequest http) {
-        return loggedIn(auth) ? "u:" + auth.getPrincipal() : "ip:" + http.getRemoteAddr();
+        return loggedIn(auth) ? "u:" + auth.getPrincipal() : "ip:" + com.mycar.auth.ClientIp.of(http);
     }
 
     /** 오늘 사용한 횟수와 한도 */

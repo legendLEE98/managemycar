@@ -21,7 +21,9 @@ server {
         proxy_pass http://127.0.0.1:8088;
         proxy_http_version 1.1;
         proxy_set_header Host $host;
+        # cloudflare-realip.conf 덕분에 $remote_addr는 실제 방문자 IP다. 위조된 헤더를 막으려고 값을 덮어쓴다.
         proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header CF-Connecting-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
         proxy_read_timeout 120s;
