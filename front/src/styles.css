@@ -599,7 +599,7 @@ a.logo:hover { opacity: 0.8; }
 .cal-jump { font: inherit; text-align: left; background: transparent; border: 0; padding: 0; cursor: pointer; color: inherit; }
 .cal-jump:hover b { text-decoration: underline; }
 
-/* ---- 근처 정비소(준비 중) ---- */
+/* ---- 근처 정비소 ---- */
 .shops-ph { height: 100%; min-height: 320px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; text-align: center; color: var(--muted); }
 .shops-ph h2 { margin: 4px 0 0; color: var(--text); font-size: 20px; }
 .shops-ph p { margin: 0; font-size: 14px; }
@@ -810,3 +810,32 @@ a.logo:hover { opacity: 0.8; }
 .modal .field .input-unit input { padding-right: 44px; }
 .input-unit em { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); font-style: normal; font-size: 13px; color: var(--muted); pointer-events: none; }
 .modal-head .sub { margin: 4px 0 0; font-size: 12.5px; color: var(--muted); }
+
+.shops { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 16px; height: 100%; min-height: 480px; }
+.shops-map-wrap { position: relative; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; min-height: 420px; background: #efeceb; }
+.shops-map { position: absolute; inset: 0; }
+.shops-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; text-align: center; padding: 20px; font-size: 14px; color: var(--muted); background: rgba(255,255,255,.85); z-index: 2; }
+.shops-overlay.err { color: #c0392b; }
+.shops-ctrl { position: absolute; top: 12px; left: 12px; display: flex; gap: 8px; flex-wrap: wrap; z-index: 1; }
+.map-btn { font: inherit; font-size: 13px; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line); background: #fff; color: var(--text); cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,.12); }
+.map-btn:hover:not(:disabled) { background: var(--brand-soft); }
+.map-btn.on { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+.map-btn:disabled { opacity: .6; cursor: default; }
+.shops-list { display: flex; flex-direction: column; min-height: 0; border: 1px solid var(--line); border-radius: 14px; background: #fff; padding: 14px 14px 10px; overflow-y: auto; }
+.shops-list h2 { margin: 0 0 8px; font-size: 16px; }
+.shops-list h2 small { font-size: 12px; color: var(--muted); font-weight: 400; }
+.shops-list ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.shops-list li { border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; }
+.shops-list li.on { border-color: #a39a98; background: #faf8f8; }
+.shop-row { display: flex; flex-direction: column; gap: 2px; width: 100%; text-align: left; font: inherit; background: transparent; border: 0; padding: 0; cursor: pointer; color: inherit; }
+.shop-name { font-size: 14px; font-weight: 600; }
+.shop-meta { font-size: 12px; color: var(--brand-strong); }
+.shop-addr { font-size: 12px; color: var(--muted); line-height: 1.45; }
+.shop-link { display: inline-block; margin-top: 4px; font-size: 12px; color: var(--brand-strong); }
+.shops-note { margin: 0 0 8px; font-size: 12.5px; line-height: 1.55; color: var(--muted); }
+.shops-foot { margin: 10px 0 0; font-size: 11.5px; color: var(--muted); }
+@media (max-width: 1179px) {
+  .shops { grid-template-columns: minmax(0, 1fr); grid-template-rows: 46dvh auto; height: auto; }
+  .shops-map-wrap { min-height: 0; }
+  .shops-list { overflow: visible; }
+}

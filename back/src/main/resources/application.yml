@@ -24,6 +24,9 @@ mycar:
       # 하루(한국 시간 0시 초기화)에 보낼 수 있는 메시지 수
       daily-user: ${CHAT_DAILY_USER:60}
       daily-guest: ${CHAT_DAILY_GUEST:20}
+  maps:
+    # 브라우저에 내려가는 키이므로 Google Cloud에서 HTTP 리퍼러(도메인)와 API 범위를 제한해 둘 것
+    google-key: ${GOOGLE_MAPS_API_KEY:}
   openai:
     api-key: ${OPENAI_API_KEY:}
     model: ${OPENAI_MODEL:gpt-4o-mini}

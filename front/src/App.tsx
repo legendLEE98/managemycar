@@ -12,7 +12,7 @@ import VehicleSwitcher from './components/VehicleSwitcher'
 import { MOBILE_QUERY, useMediaQuery } from './useMediaQuery'
 import CalendarView from './components/CalendarView'
 import ChatBox, { type Draft } from './components/ChatBox'
-import ShopsPlaceholder from './components/ShopsPlaceholder'
+import ShopsMap from './components/ShopsMap'
 import StatePanel from './components/StatePanel'
 import ServiceModal, { type ServiceRecord } from './components/ServiceModal'
 import Sidebar from './components/Sidebar'
@@ -427,7 +427,6 @@ export default function App() {
           {TABS.map((t) => (
             <button key={t.id} className={`tab ${tab === t.id ? 'on' : ''}`} onClick={() => goTab(t.id)} aria-current={tab === t.id ? 'page' : undefined}>
               {t.label}
-              {t.id === 'shops' && <small>준비 중</small>}
             </button>
           ))}
         </nav>
@@ -478,7 +477,7 @@ export default function App() {
       )}
       {tabNow === 'shops' && (
         <div className="page-body">
-          <ShopsPlaceholder />
+          <ShopsMap />
         </div>
       )}
 

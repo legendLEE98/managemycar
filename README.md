@@ -68,6 +68,7 @@ docker compose up -d --build
 | `CHAT_LIMIT_PER_MINUTE` | 분당 최대 메시지 수 | `6` |
 | `CHAT_DAILY_USER` | 로그인 사용자 하루 한도(KST 0시 초기화) | `60` |
 | `CHAT_DAILY_GUEST` | 비로그인 하루 한도(IP 기준) | `20` |
+| `GOOGLE_MAPS_API_KEY` | 근처 정비소용 구글 지도 키(도메인 제한 필수, Maps JavaScript API + Places API (New)) | (선택) |
 
 ## 개발
 
@@ -95,7 +96,7 @@ docker compose up -d --build front
 
 ## 예정
 
-네이버 로그인, 네이버 지도 기반 근처 정비소, 교체 알림, PWA/앱화
+네이버 로그인, 교체 알림, PWA/앱화
 
 ## 라이선스 및 크레딧
 
