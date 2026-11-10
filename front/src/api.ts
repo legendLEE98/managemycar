@@ -23,6 +23,8 @@ export type CarState = {
   fuel: { totalLiters: number; totalCost: number; started: boolean; litersSinceStart: number; trackedKm: number }
   services: Record<string, ServiceItem>
   recent: { at: string | null; type: string | null; summary: string }[]
+  /** 사용자가 캘린더에 직접 넣은 일정 */
+  schedules: { id: string; date: string; title: string }[]
   updatedAt: string | null
 }
 

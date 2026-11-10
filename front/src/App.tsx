@@ -472,7 +472,7 @@ export default function App() {
       {isMobile && tabNow === 'state' && <div className="page-body">{statePanel}</div>}
       {tabNow === 'calendar' && (
         <div className="page-body">
-          <CalendarView state={state} />
+          <CalendarView state={state} onChange={(next) => commit(active.id, next)} />
         </div>
       )}
       {tabNow === 'shops' && (

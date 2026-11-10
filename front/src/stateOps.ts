@@ -87,3 +87,13 @@ export function updateVehicle(s: CarState, patch: VehiclePatch): CarState {
     updatedAt: new Date().toISOString(),
   }
 }
+
+/** 캘린더에 일정을 추가한다. */
+export function addSchedule(s: CarState, date: string, title: string): CarState {
+  const id = Math.random().toString(36).slice(2, 10)
+  return { ...s, schedules: [...(s.schedules ?? []), { id, date, title }].slice(-200), updatedAt: new Date().toISOString() }
+}
+
+export function removeSchedule(s: CarState, id: string): CarState {
+  return { ...s, schedules: (s.schedules ?? []).filter((x) => x.id !== id), updatedAt: new Date().toISOString() }
+}

@@ -1,20 +1,23 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useState, type FormEvent } from 'react'
 import type { CarState } from '../api'
 import { serviceViews } from '../derive'
+import { addSchedule, removeSchedule } from '../stateOps'
 import { buildEvents, groupByDate, toKey, todayKey, upcoming, urgentItems, type CalEvent, type CalKind } from '../calendar'
 
 const WEEK = ['일', '월', '화', '수', '목', '금', '토']
-const KIND_LABEL: Record<CalKind, string> = { done: '교체 완료', due: '교체 예정', overdue: '시기 지남', log: '기록' }
+const KIND_LABEL: Record<CalKind, string> = { plan: '내 일정', done: '교체 완료', due: '교체 예정', overdue: '시기 지남', log: '기록' }
 
 const dateLabel = (key: string) => {
   const [y, m, d] = key.split('-').map(Number)
   return `${y}년 ${m}월 ${d}일 (${WEEK[new Date(y, m - 1, d).getDay()]})`
 }
 
-export default function CalendarView({ state }: { state: CarState }) {
+export default function CalendarView({ state, onChange }: { state: CarState; onChange: (next: CarState) => void }) {
   const now = new Date()
   const [ym, setYm] = useState({ y: now.getFullYear(), m: now.getMonth() })
   const [selected, setSelected] = useState(todayKey())
+  const [adding, setAdding] = useState(false)
+  const [title, setTitle] = useState('')
 
   const events = useMemo(() => buildEvents(state), [state])
   const byDate = useMemo(() => groupByDate(events), [events])
@@ -45,6 +48,15 @@ export default function CalendarView({ state }: { state: CarState }) {
   }
 
   const selEvents: CalEvent[] = byDate.get(selected) ?? []
+
+  const submit = (e: FormEvent) => {
+    e.preventDefault()
+    const t = title.trim()
+    if (!t) return
+    onChange(addSchedule(state, selected, t.slice(0, 60)))
+    setTitle('')
+    setAdding(false)
+  }
 
   return (
     <div className="cal">
@@ -99,6 +111,7 @@ export default function CalendarView({ state }: { state: CarState }) {
         </div>
 
         <div className="cal-legend">
+          <span><i className="dot plan" /> 내 일정</span>
           <span><i className="dot done" /> 교체 완료</span>
           <span><i className="dot due" /> 교체 예정</span>
           <span><i className="dot overdue" /> 시기 지남</span>
@@ -108,7 +121,34 @@ export default function CalendarView({ state }: { state: CarState }) {
 
       <aside className="cal-side">
         <section className="card">
-          <h3>{dateLabel(selected)}</h3>
+          <div className="cal-day-head">
+            <h3>{dateLabel(selected)}</h3>
+            {!adding && (
+              <button className="cal-add" onClick={() => setAdding(true)}>
+                + 일정 추가
+              </button>
+            )}
+          </div>
+          {adding && (
+            <form className="cal-form" onSubmit={submit}>
+              <input
+                autoFocus
+                value={title}
+                maxLength={60}
+                onChange={(e) => setTitle(e.target.value)}
+                placeholder="예) 정비소 예약, 보험 갱신"
+                aria-label="일정 제목"
+              />
+              <div className="cal-form-btns">
+                <button type="button" className="btn ghost" onClick={() => { setAdding(false); setTitle('') }}>
+                  취소
+                </button>
+                <button type="submit" className="btn primary" disabled={!title.trim()}>
+                  추가
+                </button>
+              </div>
+            </form>
+          )}
           {selEvents.length === 0 ? (
             <p className="muted">이 날의 일정이 없어요.</p>
           ) : (
@@ -123,6 +163,11 @@ export default function CalendarView({ state }: { state: CarState }) {
                       {e.detail ? ` · ${e.detail}` : ''}
                     </small>
                   </div>
+                  {e.scheduleId && (
+                    <button className="cal-del" aria-label="일정 삭제" title="삭제" onClick={() => onChange(removeSchedule(state, e.scheduleId!))}>
+                      ×
+                    </button>
+                  )}
                 </li>
               ))}
             </ul>

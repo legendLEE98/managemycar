@@ -583,11 +583,13 @@ a.logo:hover { opacity: 0.8; }
 .chip-ev.due { background: #fff3d6; color: #9a6400; }
 .chip-ev.overdue { background: #fbe9e7; color: #c0392b; }
 .chip-ev.log { background: #f1efee; color: var(--muted); }
+.chip-ev.plan { background: #e4eefb; color: #1f5fb3; }
 .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; flex: none; margin-top: 5px; }
 .dot.done { background: var(--brand); }
 .dot.due { background: #e0a020; }
 .dot.overdue { background: #c0392b; }
 .dot.log { background: #bdb5b3; }
+.dot.plan { background: #2f7de1; }
 .cal-legend { display: flex; gap: 14px; margin-top: 10px; font-size: 12px; color: var(--muted); }
 .cal-legend .dot { margin: 0 4px 0 0; vertical-align: middle; }
 .cal-side { display: flex; flex-direction: column; gap: 12px; }
@@ -703,6 +705,7 @@ a.logo:hover { opacity: 0.8; }
   .chip-ev.due { background: #e0a020; }
   .chip-ev.overdue { background: #c0392b; }
   .chip-ev.log { background: #bdb5b3; }
+  .chip-ev.plan { background: #2f7de1; }
   .cal-chips em { display: none; }
   .cal-legend { flex-wrap: wrap; gap: 8px 14px; }
 
@@ -842,3 +845,19 @@ a.logo:hover { opacity: 0.8; }
   .shops-map-wrap { min-height: 0; }
   .shops-list { overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
 }
+
+/* 캘린더 일정 추가 */
+.cal-day-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 8px; }
+.cal-day-head h3 { margin: 0; }
+.cal-add { font: inherit; font-size: 12.5px; color: var(--brand-strong); background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; cursor: pointer; white-space: nowrap; }
+.cal-add:hover { background: var(--brand-soft); }
+.cal-form { display: flex; flex-direction: column; gap: 8px; margin: 0 0 12px; }
+.cal-form input { font: inherit; font-size: 14px; padding: 9px 10px; border: 1px solid var(--line); border-radius: 8px; width: 100%; box-sizing: border-box; }
+.cal-form input:focus { outline: 0; border-color: #a39a98; }
+.cal-form-btns { display: flex; justify-content: flex-end; gap: 6px; }
+.cal-form-btns .btn { font-size: 13px; padding: 6px 14px; border-radius: 999px; }
+.cal-form-btns .primary { background: var(--accent); border: 1px solid var(--accent); color: #fff; font-weight: 600; cursor: pointer; }
+.cal-form-btns .primary:disabled { opacity: .5; cursor: default; }
+.cal-list li { position: relative; }
+.cal-del { margin-left: auto; font: inherit; font-size: 18px; line-height: 1; color: var(--muted); background: transparent; border: 0; cursor: pointer; padding: 0 4px; }
+.cal-del:hover { color: #c0392b; }

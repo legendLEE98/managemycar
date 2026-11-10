@@ -1,8 +1,8 @@
 import type { CarState } from './api'
 import { mostUrgent, serviceViews } from './derive'
 
-export type CalKind = 'done' | 'due' | 'overdue' | 'log'
-export type CalEvent = { date: string; kind: CalKind; title: string; detail?: string }
+export type CalKind = 'done' | 'due' | 'overdue' | 'log' | 'plan'
+export type CalEvent = { date: string; kind: CalKind; title: string; detail?: string; scheduleId?: string }
 
 const pad = (n: number) => String(n).padStart(2, '0')
 export const toKey = (d: Date) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`
@@ -48,6 +48,7 @@ export function buildEvents(state: CarState): CalEvent[] {
       }
     }
   }
+  for (const x of state.schedules ?? []) out.push({ date: x.date, kind: 'plan', title: x.title, scheduleId: x.id })
   for (const e of state.recent) {
     if (e.at && (e.type === 'fuel' || e.type === 'trip' || e.type === 'odometer')) {
       out.push({ date: e.at, kind: 'log', title: e.summary })
@@ -58,7 +59,7 @@ export function buildEvents(state: CarState): CalEvent[] {
 
 export function groupByDate(events: CalEvent[]): Map<string, CalEvent[]> {
   const m = new Map<string, CalEvent[]>()
-  const order: Record<CalKind, number> = { overdue: 0, due: 1, done: 2, log: 3 }
+  const order: Record<CalKind, number> = { plan: 0, overdue: 1, due: 2, done: 3, log: 4 }
   for (const e of events) {
     const list = m.get(e.date) ?? []
     list.push(e)

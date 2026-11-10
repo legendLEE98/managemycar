@@ -13,6 +13,7 @@ export const DEFAULT_STATE: CarState = {
   fuel: { totalLiters: 0, totalCost: 0, started: false, litersSinceStart: 0, trackedKm: 0 },
   services: defaultServices(),
   recent: [],
+  schedules: [],
   updatedAt: null,
 }
 
@@ -30,6 +31,7 @@ function merge(parsed: Partial<CarState>): CarState {
     fuel: { ...DEFAULT_STATE.fuel, ...parsed.fuel },
     services,
     recent: parsed.recent ?? [],
+    schedules: parsed.schedules ?? [],
   }
 }
 

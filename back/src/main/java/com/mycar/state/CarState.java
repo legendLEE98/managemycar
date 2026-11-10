@@ -19,6 +19,7 @@ import java.util.Set;
 public class CarState {
     public static final Set<String> FUEL_TYPES = Set.of("gasoline", "diesel", "lpg", "hybrid", "electric");
     static final int MAX_RECENT = 30;
+    static final int MAX_SCHEDULES = 200;
     static final int MAX_KM = 3_000_000;
 
     public int version = 1;
@@ -28,6 +29,8 @@ public class CarState {
     public Fuel fuel = new Fuel();
     public Map<String, ServiceItem> services = new LinkedHashMap<>();
     public List<Event> recent = new ArrayList<>();
+    /** 사용자가 캘린더에 직접 넣은 일정 */
+    public List<Schedule> schedules = new ArrayList<>();
     public String updatedAt;
 
     @JsonIgnoreProperties(ignoreUnknown = true)
@@ -70,6 +73,13 @@ public class CarState {
         public String lastDate;
         public Integer intervalKm;
         public Integer intervalMonths;
+    }
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public static class Schedule {
+        public String id;
+        public String date;
+        public String title;
     }
 
     @JsonIgnoreProperties(ignoreUnknown = true)
@@ -151,6 +161,21 @@ public class CarState {
             }
         }
         recent = ev.size() > MAX_RECENT ? new ArrayList<>(ev.subList(ev.size() - MAX_RECENT, ev.size())) : ev;
+        List<Schedule> sc = new ArrayList<>();
+        if (schedules != null) {
+            java.util.Set<String> ids = new java.util.HashSet<>();
+            for (Schedule x : schedules) {
+                if (x == null) continue;
+                x.date = date(x.date);
+                x.title = clip(x.title, 60);
+                x.id = clip(x.id, 40);
+                if (x.date == null || x.title == null) continue;
+                if (x.id == null || !ids.add(x.id)) x.id = java.util.UUID.randomUUID().toString().substring(0, 8);
+                sc.add(x);
+                if (sc.size() >= MAX_SCHEDULES) break;
+            }
+        }
+        schedules = sc;
         updatedAt = clip(updatedAt, 40);
         return this;
     }
