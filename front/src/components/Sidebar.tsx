@@ -157,6 +157,9 @@ export default function Sidebar({ state, onPickExample, onClose, embedded }: Pro
       <footer className="sb-foot">
         <p>AI 답변은 틀릴 수 있어요. 중요한 정비 판단은 설명서와 정비소 안내를 따르세요.</p>
         <p>
+          <a href="#/terms" target="_blank" rel="noreferrer">이용약관</a> · <a href="#/privacy" target="_blank" rel="noreferrer">개인정보 처리방침</a>
+        </p>
+        <p>
           3D 차량 모델: <a href="https://www.kenney.nl" target="_blank" rel="noreferrer">Kenney</a> Car Kit (CC0)
         </p>
       </footer>

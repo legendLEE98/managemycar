@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.mycar.state.CarState;
+import com.mycar.schedule.ScheduleService;
 import com.mycar.state.Garage;
 import java.time.OffsetDateTime;
 import java.util.List;
@@ -31,10 +32,12 @@ public class UserStateService {
 
     private final JdbcTemplate jdbc;
     private final ObjectMapper mapper;
+    private final ScheduleService schedules;
 
-    public UserStateService(JdbcTemplate jdbc, ObjectMapper mapper) {
+    public UserStateService(JdbcTemplate jdbc, ObjectMapper mapper, ScheduleService schedules) {
         this.jdbc = jdbc;
         this.mapper = mapper;
+        this.schedules = schedules;
     }
 
     /** 요청 본문을 차고로 바꾼다. 차고 형식(vehicles 포함)이 아니면 예전 형식으로 보고 감싼다. */
@@ -80,6 +83,9 @@ public class UserStateService {
         Garage garage = incoming.sanitize();
         // 같은 사용자의 동시 저장이 version을 겹치지 않게 직렬화한다.
         jdbc.query("SELECT pg_advisory_xact_lock(?)", ps -> ps.setLong(1, userId), rs -> {});
+
+        // 차고에서 지운 차량의 일정도 함께 정리한다(내용이 같아 새 버전을 만들지 않는 경우에도).
+        schedules.removeOrphans(userId, garage.vehicles.stream().map(v -> v.id).toList());
 
         Optional<Snapshot> latest = latest(userId);
         if (latest.isPresent() && sameContent(latest.get().state(), garage)) {

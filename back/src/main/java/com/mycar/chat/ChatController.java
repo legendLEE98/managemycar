@@ -20,8 +20,10 @@ public class ChatController {
     private final ChatService service;
     private final ChatRateLimiter limiter;
     private final ChatQuota quota;
+    private final ChatLog chatLog;
 
-    public ChatController(ChatService service, ChatRateLimiter limiter, ChatQuota quota) {
+    public ChatController(ChatService service, ChatRateLimiter limiter, ChatQuota quota, ChatLog chatLog) {
+        this.chatLog = chatLog;
         this.service = service;
         this.limiter = limiter;
         this.quota = quota;
@@ -64,11 +66,17 @@ public class ChatController {
                     : "오늘 대화 횟수(" + limit + "회)를 모두 사용했어요. 로그인하면 하루 " + quota.limitFor(true)
                             + "회까지 사용할 수 있어요. (내일 0시에 초기화)");
         }
+        Long userId = li ? (Long) auth.getPrincipal() : null;
+        String ip = com.mycar.auth.ClientIp.of(http);
+        String request = req.messages().get(req.messages().size() - 1).content();
+        long started = System.currentTimeMillis();
         try {
-            ChatResponse r = service.chat(req.messages(), req.state());
-            return new ChatResponse(r.reply(), r.state(), r.changes(), new Usage(used, limit, ChatQuota.today().toString(), li), r.actions());
+            ChatResponse r = service.chat(req.messages(), req.state(), req.schedules());
+            chatLog.ok(userId, ip, request, r.reply(), r.changes(), System.currentTimeMillis() - started);
+            return new ChatResponse(r.reply(), r.state(), r.changes(), new Usage(used, limit, ChatQuota.today().toString(), li), r.actions(), r.schedules());
         } catch (RestClientException e) {
             quota.refund(subject); // AI 서버 문제로 실패한 요청은 횟수에서 빼 준다
+            chatLog.error(userId, ip, request, e.getClass().getSimpleName() + ": " + e.getMessage(), System.currentTimeMillis() - started);
             log.error("OpenAI 호출 실패", e);
             throw new ResponseStatusException(HttpStatus.BAD_GATEWAY, "AI 서버 응답에 실패했어요.");
         }

@@ -23,8 +23,6 @@ export type CarState = {
   fuel: { totalLiters: number; totalCost: number; started: boolean; litersSinceStart: number; trackedKm: number }
   services: Record<string, ServiceItem>
   recent: { at: string | null; type: string | null; summary: string }[]
-  /** 사용자가 캘린더에 직접 넣은 일정 */
-  schedules: { id: string; date: string; title: string }[]
   updatedAt: string | null
 }
 
@@ -73,6 +71,8 @@ export type ChatResult = {
   changes: string[]
   usage?: ChatUsage | null
   actions?: ChatAction[]
+  /** 이번 대화로 새로 추가된 일정(화면이 저장한다) */
+  schedules?: { id: string; date: string; title: string }[]
 }
 
 export async function getChatUsage(): Promise<ChatUsage> {
@@ -81,11 +81,15 @@ export async function getChatUsage(): Promise<ChatUsage> {
   return res.json()
 }
 
-export async function sendChat(messages: ChatMessage[], state: CarState): Promise<ChatResult> {
+export async function sendChat(
+  messages: ChatMessage[],
+  state: CarState,
+  schedules: { date: string; title: string }[] = [],
+): Promise<ChatResult> {
   const res = await fetch('/api/v1/chat', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ messages, state }),
+    body: JSON.stringify({ messages, state, schedules }),
   })
   if (!res.ok) {
     let msg = '요청에 실패했어요. 잠시 후 다시 시도해 주세요.'

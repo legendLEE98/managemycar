@@ -13,11 +13,12 @@ export const DEFAULT_STATE: CarState = {
   fuel: { totalLiters: 0, totalCost: 0, started: false, litersSinceStart: 0, trackedKm: 0 },
   services: defaultServices(),
   recent: [],
-  schedules: [],
   updatedAt: null,
 }
 
-function merge(parsed: Partial<CarState>): CarState {
+function merge(input: Partial<CarState>): CarState {
+  // 예전 저장본에는 일정(schedules)이 차량 상태 안에 있었다. 지금은 따로 저장하므로 여기서는 버린다(schedules.ts가 옮긴다).
+  const { schedules: _legacy, ...parsed } = input as Partial<CarState> & { schedules?: unknown }
   const vehicle = { ...DEFAULT_STATE.vehicle, ...parsed.vehicle }
   // 새로 추가된 항목은 기본 주기로 채우고, 이 연료 종류에 해당 없는 항목은 뺀다.
   // (연료 기준 이전 기본값 그대로인 주기는 현재 연료의 기본값으로 맞춘다)
@@ -31,7 +32,6 @@ function merge(parsed: Partial<CarState>): CarState {
     fuel: { ...DEFAULT_STATE.fuel, ...parsed.fuel },
     services,
     recent: parsed.recent ?? [],
-    schedules: parsed.schedules ?? [],
   }
 }
 

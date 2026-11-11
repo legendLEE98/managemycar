@@ -1,7 +1,7 @@
 import { useMemo, useState, type FormEvent } from 'react'
 import type { CarState } from '../api'
 import { serviceViews } from '../derive'
-import { addSchedule, removeSchedule } from '../stateOps'
+import type { Schedule } from '../schedules'
 import { buildEvents, groupByDate, toKey, todayKey, upcoming, urgentItems, type CalEvent, type CalKind } from '../calendar'
 
 const WEEK = ['일', '월', '화', '수', '목', '금', '토']
@@ -12,14 +12,25 @@ const dateLabel = (key: string) => {
   return `${y}년 ${m}월 ${d}일 (${WEEK[new Date(y, m - 1, d).getDay()]})`
 }
 
-export default function CalendarView({ state, onChange }: { state: CarState; onChange: (next: CarState) => void }) {
+type Props = {
+  state: CarState
+  /** 선택한 차량의 일정 */
+  schedules: Schedule[]
+  /** 일정 추가. 실패하면 사유를 돌려준다. */
+  onAdd: (date: string, title: string) => Promise<string | null>
+  onRemove: (id: string) => void
+}
+
+export default function CalendarView({ state, schedules, onAdd, onRemove }: Props) {
   const now = new Date()
   const [ym, setYm] = useState({ y: now.getFullYear(), m: now.getMonth() })
   const [selected, setSelected] = useState(todayKey())
   const [adding, setAdding] = useState(false)
   const [title, setTitle] = useState('')
+  const [error, setError] = useState('')
+  const [saving, setSaving] = useState(false)
 
-  const events = useMemo(() => buildEvents(state), [state])
+  const events = useMemo(() => buildEvents(state, schedules), [state, schedules])
   const byDate = useMemo(() => groupByDate(events), [events])
   const soon = useMemo(() => upcoming(events), [events])
   const urgent = useMemo(() => urgentItems(state), [state])
@@ -49,12 +60,16 @@ export default function CalendarView({ state, onChange }: { state: CarState; onC
 
   const selEvents: CalEvent[] = byDate.get(selected) ?? []
 
-  const submit = (e: FormEvent) => {
+  const submit = async (e: FormEvent) => {
     e.preventDefault()
     const t = title.trim()
-    if (!t) return
-    onChange(addSchedule(state, selected, t.slice(0, 60)))
+    if (!t || saving) return
+    setSaving(true)
+    const err = await onAdd(selected, t.slice(0, 60))
+    setSaving(false)
+    if (err) return setError(err)
     setTitle('')
+    setError('')
     setAdding(false)
   }
 
@@ -135,15 +150,16 @@ export default function CalendarView({ state, onChange }: { state: CarState; onC
                 autoFocus
                 value={title}
                 maxLength={60}
-                onChange={(e) => setTitle(e.target.value)}
+                onChange={(e) => { setTitle(e.target.value); setError("") }}
                 placeholder="예) 정비소 예약, 보험 갱신"
                 aria-label="일정 제목"
               />
+              {error && <p className="editor-error" role="alert">{error}</p>}
               <div className="cal-form-btns">
-                <button type="button" className="btn ghost" onClick={() => { setAdding(false); setTitle('') }}>
+                <button type="button" className="btn ghost" onClick={() => { setAdding(false); setTitle(''); setError('') }}>
                   취소
                 </button>
-                <button type="submit" className="btn primary" disabled={!title.trim()}>
+                <button type="submit" className="btn primary" disabled={!title.trim() || saving}>
                   추가
                 </button>
               </div>
@@ -164,7 +180,7 @@ export default function CalendarView({ state, onChange }: { state: CarState; onC
                     </small>
                   </div>
                   {e.scheduleId && (
-                    <button className="cal-del" aria-label="일정 삭제" title="삭제" onClick={() => onChange(removeSchedule(state, e.scheduleId!))}>
+                    <button className="cal-del" aria-label="일정 삭제" title="삭제" onClick={() => onRemove(e.scheduleId!)}>
                       ×
                     </button>
                   )}

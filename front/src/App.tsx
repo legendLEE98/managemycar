@@ -17,6 +17,18 @@ import StatePanel from './components/StatePanel'
 import ServiceModal, { type ServiceRecord } from './components/ServiceModal'
 import Sidebar from './components/Sidebar'
 import VehicleModal from './components/VehicleModal'
+import {
+  MAX_SCHEDULES,
+  addServerSchedule,
+  clearGuestSchedules,
+  getServerSchedules,
+  importServerSchedules,
+  loadGuestSchedules,
+  newScheduleId,
+  removeServerSchedule,
+  saveGuestSchedules,
+  type Schedule,
+} from './schedules'
 import { applyDriving, recordService, updateVehicle, type VehiclePatch } from './stateOps'
 import { getChatUsage, sendChat, type CarState, type ChatAction, type ChatMessage, type ChatUsage, type Garage } from './api'
 import ExportButton from './components/ExportButton'
@@ -49,7 +61,11 @@ const ALL_HASH: Record<Tab, string> = { chat: '#/', state: '#/state', calendar: 
 const tabFromHash = (): Tab =>
   (Object.entries(ALL_HASH).find(([id, h]) => id !== 'chat' && h === window.location.hash)?.[0] as Tab | undefined) ?? 'chat'
 
-type Msg = ChatMessage & { changes?: string[]; actions?: ChatAction[]; before?: { vehicleId: string; state: CarState } }
+type Msg = ChatMessage & {
+  changes?: string[]
+  actions?: ChatAction[]
+  before?: { vehicleId: string; state: CarState; scheduleIds?: string[] }
+}
 
 export default function App() {
   const [msgs, setMsgs] = useState<Msg[]>([])
@@ -75,6 +91,9 @@ export default function App() {
   const [passwordOpen, setPasswordOpen] = useState(false)
   const garageRef = useRef(garage)
   garageRef.current = garage
+  // 캘린더 일정: 차량 상태와 따로 저장한다. 로그인(계정과 맞춘 뒤)이면 서버, 아니면 이 브라우저.
+  const [schedules, setSchedules] = useState<Schedule[]>(loadGuestSchedules)
+  const schedulesRef = useRef(schedules)
   const pendingRef = useRef(false)
   pendingRef.current = pending
 
@@ -97,6 +116,57 @@ export default function App() {
       dirtyRef.current = true
     }
   }
+  const setSched = (next: Schedule[]) => {
+    schedulesRef.current = next
+    setSchedules(next)
+  }
+  const scheduleOnServer = () => Boolean(userRef.current) && syncedRef.current
+
+  /** 일정을 추가한다. 실패하면 화면에서 되돌리고 사유를 돌려준다(성공이면 null). */
+  const addSchedules = async (items: Schedule[]): Promise<string | null> => {
+    const prev = schedulesRef.current
+    const fresh: Schedule[] = []
+    for (const x of items) {
+      const same = [...prev, ...fresh].some((y) => y.id === x.id || (y.vehicleId === x.vehicleId && y.date === x.date && y.title === x.title))
+      if (same) continue
+      const count = [...prev, ...fresh].filter((y) => y.vehicleId === x.vehicleId).length
+      if (count >= MAX_SCHEDULES) return '일정이 너무 많아요. 지난 일정을 삭제해 주세요.'
+      fresh.push(x)
+    }
+    if (fresh.length === 0) return null
+    setSched([...prev, ...fresh])
+    if (!scheduleOnServer()) {
+      saveGuestSchedules(schedulesRef.current)
+      return null
+    }
+    try {
+      for (const x of fresh) {
+        const saved = await addServerSchedule(x)
+        if (saved.id !== x.id) setSched(schedulesRef.current.map((y) => (y.id === x.id ? { ...y, id: saved.id } : y)))
+      }
+      return null
+    } catch (e) {
+      const ids = new Set(fresh.map((x) => x.id))
+      setSched(schedulesRef.current.filter((y) => !ids.has(y.id)))
+      return (e as Error).message || '일정을 저장하지 못했어요.'
+    }
+  }
+
+  const removeSchedules = async (ids: string[]) => {
+    const removed = schedulesRef.current.filter((x) => ids.includes(x.id))
+    if (removed.length === 0) return
+    setSched(schedulesRef.current.filter((x) => !ids.includes(x.id)))
+    if (!scheduleOnServer()) {
+      saveGuestSchedules(schedulesRef.current)
+      return
+    }
+    try {
+      await Promise.all(removed.map((x) => removeServerSchedule(x.id)))
+    } catch {
+      setSched([...schedulesRef.current, ...removed.filter((x) => !schedulesRef.current.some((y) => y.id === x.id))]) // 삭제에 실패하면 되살린다
+    }
+  }
+
   /** 특정 차량의 상태를 바꾼다(비동기 응답이 와도 그 차량에 반영되도록 id로 지정) */
   const commit = (id: string, next: CarState) => updateGarage(withState(garageRef.current, id, next))
   const [sidebarOpen, setSidebarOpen] = useState(() => {
@@ -176,9 +246,10 @@ export default function App() {
         if (server) {
           const srv = normalizeGarage(server)
           // 예전 형식 저장본은 계정 데이터의 사본일 수 있어서 합치지 않는다(지운 차량이 되살아나는 것을 막는다).
-          const guestHas = sourceRef.current !== 'legacy' && guest.vehicles.some((v) => hasData(v.state))
+          const guestHas =
+            sourceRef.current !== 'legacy' && (guest.vehicles.some((v) => hasData(v.state)) || schedulesRef.current.length > 0)
           if (guestHas) {
-            const keep = pendingRef.current ? [guest.activeId] : []
+            const keep = [...(pendingRef.current ? [guest.activeId] : []), ...schedulesRef.current.map((x) => x.vehicleId)]
             const m = mergeGarages(srv, guest, keep)
             result = m.garage
             const parts = [
@@ -204,8 +275,22 @@ export default function App() {
           if (cancelled) return
         }
 
+        // 일정: 이 브라우저에서 만든 일정을 계정으로 옮기고, 계정의 일정을 불러온다.
+        // (차량이 서버에 저장된 뒤에 옮긴다. 합치는 동안 새로 만든 일정은 한 번 더 옮긴다.)
+        const fromGuest = schedulesRef.current
+        if (fromGuest.length) await importServerSchedules(fromGuest)
+        let serverSchedules = await getServerSchedules()
+        const late = schedulesRef.current.filter((x) => !serverSchedules.some((y) => y.id === x.id))
+        if (late.length) {
+          await importServerSchedules(late)
+          serverSchedules = await getServerSchedules()
+        }
+        if (cancelled) return
+
         syncedRef.current = true
         dirtyRef.current = false
+        setSched(serverSchedules)
+        clearGuestSchedules() // 계정에 저장된 뒤에만 이 브라우저의 일정을 지운다
         setGarage(result)
         garageRef.current = result
         clearLocalGarage() // 서버에 저장된 뒤에만 이 브라우저의 차량 데이터를 지운다
@@ -271,6 +356,8 @@ export default function App() {
       setGarage(fresh)
       garageRef.current = fresh
       saveGuestGarage(fresh)
+      clearGuestSchedules()
+      setSched([])
       sourceRef.current = 'v2'
       resetChat()
       setUser(null)
@@ -292,8 +379,11 @@ export default function App() {
       const res = await sendChat(
         next.map(({ role, content }) => ({ role, content })),
         before,
+        schedulesRef.current.filter((x) => x.vehicleId === vid).map(({ date, title }) => ({ date, title })),
       )
       commit(vid, res.state)
+      const added: Schedule[] = (res.schedules ?? []).map((x) => ({ ...x, vehicleId: vid }))
+      const saveError = added.length ? await addSchedules(added) : null
       if (res.usage) setUsage(res.usage)
       if (turn !== convo.current) return // 응답을 기다리는 사이 차량을 바꿨으면 대화에는 붙이지 않는다
       setMsgs((m) => [
@@ -303,8 +393,9 @@ export default function App() {
           content: res.reply,
           changes: res.changes,
           actions: res.actions,
-          before: res.changes.length ? { vehicleId: vid, state: before } : undefined,
+          before: res.changes.length ? { vehicleId: vid, state: before, scheduleIds: added.map((x) => x.id) } : undefined,
         },
+        ...(saveError ? [{ role: 'assistant' as const, content: `일정을 저장하지 못했어요. ${saveError}` }] : []),
       ])
     } catch (e) {
       refreshUsage() // 한도 초과로 거절됐다면 화면의 횟수도 맞춰 둔다
@@ -318,6 +409,7 @@ export default function App() {
     const before = msgs[idx].before
     if (!before) return
     commit(before.vehicleId, before.state)
+    if (before.scheduleIds?.length) removeSchedules(before.scheduleIds)
     setMsgs((m) => [
       ...m.map((x, i) => (i === idx ? { ...x, before: undefined } : x)),
       { role: 'assistant', content: '방금 변경을 되돌렸어요.' },
@@ -362,13 +454,17 @@ export default function App() {
     resetChat()
   }
   const removeOneVehicle = (id: string) => {
-    updateGarage(removeVehicle(garageRef.current, id))
+    const next = removeVehicle(garageRef.current, id)
+    const removed = next.vehicles.length < garageRef.current.vehicles.length
+    updateGarage(next)
+    if (removed) removeSchedules(schedulesRef.current.filter((x) => x.vehicleId === id).map((x) => x.id))
     if (id === garageRef.current.activeId) resetChat()
   }
 
   const statePanel = (
     <StatePanel
       garage={garage}
+      schedules={schedules}
       onSwitchVehicle={switchVehicle}
       onAddVehicle={addNewVehicle}
       onRemoveVehicle={removeOneVehicle}
@@ -472,7 +568,12 @@ export default function App() {
       {isMobile && tabNow === 'state' && <div className="page-body">{statePanel}</div>}
       {tabNow === 'calendar' && (
         <div className="page-body">
-          <CalendarView state={state} onChange={(next) => commit(active.id, next)} />
+          <CalendarView
+            state={state}
+            schedules={schedules.filter((x) => x.vehicleId === active.id)}
+            onAdd={(date, title) => addSchedules([{ id: newScheduleId(), vehicleId: active.id, date, title }])}
+            onRemove={(id) => removeSchedules([id])}
+          />
         </div>
       )}
       {tabNow === 'shops' && (
@@ -513,6 +614,7 @@ export default function App() {
                   a.type === 'export_excel' && (
                     <div key={k} className="chat-action-row">
                       <ExportButton
+                        schedules={schedules}
                         garage={a.scope === 'current' ? { activeId: active.id, vehicles: [active] } : garage}
                         className="btn primary chat-action"
                         label={a.scope === 'current' ? '📊 엑셀 파일 받기 (이 차량)' : '📊 엑셀 파일 받기 (전체 차량)'}
@@ -558,6 +660,7 @@ export default function App() {
         user={user}
         authReady={authReady}
         garage={garage}
+        schedules={schedules}
         onSwitchVehicle={(id) => {
           switchVehicle(id)
           setMenuOpen(false)

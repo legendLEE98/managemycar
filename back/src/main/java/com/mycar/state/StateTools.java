@@ -27,10 +27,35 @@ public final class StateTools {
     }
 
 
+    /** 채팅으로 추가한 일정. 저장은 화면(또는 일정 API)이 하므로 서버는 새 일정을 응답에 담아 돌려준다. */
+    public record NewSchedule(String id, String date, String title) {}
+
+    /** 이 차량의 기존 일정(중복·한도 확인용)과 이번 요청에서 새로 추가한 일정 */
+    public static final class Book {
+        static final int MAX = 200;
+        private final java.util.Set<String> keys = new java.util.HashSet<>();
+        private int count;
+        public final List<NewSchedule> added = new ArrayList<>();
+
+        public Book(List<NewSchedule> existing) {
+            if (existing != null) {
+                for (NewSchedule x : existing) {
+                    if (x == null || x.date() == null || x.title() == null) continue;
+                    keys.add(x.date() + "|" + x.title());
+                    count++;
+                }
+            }
+        }
+
+        boolean has(String date, String title) { return keys.contains(date + "|" + title); }
+        boolean full() { return count >= MAX; }
+        void add(NewSchedule x) { keys.add(x.date() + "|" + x.title()); count++; added.add(x); }
+    }
+
     private static final int MAX_TRIP_KM = 2000;
 
     public static Result execute(String name, JsonNode a, CarState s, LocalDate today, VehicleCatalog catalog,
-                                 ObjectMapper mapper) {
+                                 ObjectMapper mapper, Book schedules) {
         return switch (name) {
             case "lookup_vehicle" -> lookupVehicle(a, catalog, mapper);
             case "set_vehicle" -> setVehicle(a, s, today, catalog);
@@ -40,7 +65,7 @@ public final class StateTools {
             case "set_odometer" -> setOdometer(a, s, today);
             case "set_commute" -> setCommute(a, s, today);
             case "set_service_interval" -> setInterval(a, s, today);
-            case "add_schedule" -> addSchedule(a, s, today);
+            case "add_schedule" -> addSchedule(a, s, today, schedules);
             default -> Result.failure("알 수 없는 도구입니다.");
         };
     }
@@ -244,7 +269,7 @@ public final class StateTools {
         return Result.success(msg);
     }
 
-    private static Result addSchedule(JsonNode a, CarState s, LocalDate today) {
+    private static Result addSchedule(JsonNode a, CarState s, LocalDate today, Book book) {
         String title = CarState.clip(text(a, "title"), 60);
         if (title == null) return Result.failure("일정 제목이 없습니다. 무슨 일정인지 사용자에게 물어보세요.");
         String d = CarState.date(text(a, "date"));
@@ -252,14 +277,9 @@ public final class StateTools {
         LocalDate date = LocalDate.parse(d);
         if (date.isBefore(today)) return Result.failure("이미 지난 날짜입니다. 오늘 이후 날짜인지 사용자에게 확인하세요.");
         if (date.isAfter(today.plusYears(3))) return Result.failure("너무 먼 날짜입니다. 날짜를 다시 확인하세요.");
-        if (s.schedules.size() >= CarState.MAX_SCHEDULES) return Result.failure("일정이 너무 많습니다. 캘린더에서 지난 일정을 삭제해 달라고 안내하세요.");
-        boolean dup = s.schedules.stream().anyMatch(x -> d.equals(x.date) && title.equals(x.title));
-        if (dup) return Result.success("이미 같은 일정이 있어요: " + d + " " + title);
-        CarState.Schedule x = new CarState.Schedule();
-        x.id = java.util.UUID.randomUUID().toString().substring(0, 8);
-        x.date = d;
-        x.title = title;
-        s.schedules.add(x);
+        if (book.has(d, title)) return Result.success("이미 같은 일정이 있어요: " + d + " " + title);
+        if (book.full()) return Result.failure("일정이 너무 많습니다. 캘린더에서 지난 일정을 삭제해 달라고 안내하세요.");
+        book.add(new NewSchedule(java.util.UUID.randomUUID().toString().substring(0, 8), d, title));
         String msg = "일정 추가: " + d + " " + title;
         s.addEvent(today, "schedule", msg);
         return Result.success(msg);

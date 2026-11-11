@@ -45,19 +45,21 @@ public class ChatService {
         final LocalDate today = LocalDate.now(KST);
         final List<String> changes = new ArrayList<>();
         final List<Action> actions = new ArrayList<>();
+        final StateTools.Book schedules;
 
-        Ctx(CarState state) {
+        Ctx(CarState state, List<StateTools.NewSchedule> existing) {
             this.state = state;
+            this.schedules = new StateTools.Book(existing);
         }
     }
 
-    public ChatResponse chat(List<Message> history, CarState clientState) {
-        Ctx ctx = new Ctx((clientState == null ? new CarState() : clientState).sanitize());
+    public ChatResponse chat(List<Message> history, CarState clientState, List<StateTools.NewSchedule> existingSchedules) {
+        Ctx ctx = new Ctx((clientState == null ? new CarState() : clientState).sanitize(), existingSchedules);
         List<Message> recent = history.size() > MAX_HISTORY
                 ? history.subList(history.size() - MAX_HISTORY, history.size()) : history;
         String reply = openAi.enabled() ? withGpt(recent, ctx) : withKeywords(recent, ctx);
         if (!ctx.changes.isEmpty()) ctx.state.updatedAt = OffsetDateTime.now(KST).toString();
-        return new ChatResponse(reply, ctx.state, ctx.changes, null, ctx.actions);
+        return new ChatResponse(reply, ctx.state, ctx.changes, null, ctx.actions, ctx.schedules.added);
     }
 
     // ---- GPT (function calling) ----
@@ -95,7 +97,7 @@ public class ChatService {
                 return mapper.writeValueAsString(Map.of("ok", true, "hint",
                         "화면에 '엑셀 파일 받기' 버튼이 표시된다. 파일을 직접 줄 수는 없고, 버튼을 누르면 내려받아진다고 한두 문장으로 안내한다."));
             }
-            StateTools.Result r = StateTools.execute(fn.path("name").asText(), args, ctx.state, ctx.today, catalog, mapper);
+            StateTools.Result r = StateTools.execute(fn.path("name").asText(), args, ctx.state, ctx.today, catalog, mapper, ctx.schedules);
             if (r.ok() && r.show()) ctx.changes.add(r.message());
             Map<String, Object> out = new java.util.LinkedHashMap<>();
             out.put("ok", r.ok());

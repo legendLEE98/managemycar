@@ -1,4 +1,5 @@
 import type { CarState, Garage } from '../api'
+import type { Schedule } from '../schedules'
 import ExportButton from './ExportButton'
 import VehicleSwitcher from './VehicleSwitcher'
 import { bodyLabel, fuelLabel } from '../vehicleOptions'
@@ -6,6 +7,7 @@ import { daysSince, efficiency, fmtKm, gaps, mostUrgent, serviceSummary, service
 
 type Props = {
   garage: Garage
+  schedules: Schedule[]
   onSwitchVehicle: (id: string) => void
   onAddVehicle: () => void
   onRemoveVehicle: (id: string) => void
@@ -18,6 +20,7 @@ type Props = {
 
 export default function StatePanel({
   garage,
+  schedules,
   onSwitchVehicle,
   onAddVehicle,
   onRemoveVehicle,
@@ -65,7 +68,7 @@ export default function StatePanel({
         </div>
       </section>
 
-      <ExportButton garage={garage} className="btn ghost export-btn" />
+      <ExportButton garage={garage} schedules={schedules} className="btn ghost export-btn" />
 
       <section className="card">
         <h3>

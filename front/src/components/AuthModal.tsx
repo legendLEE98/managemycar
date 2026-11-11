@@ -93,6 +93,13 @@ export default function AuthModal({ initialMode, onClose, onDone }: Props) {
             {mode === 'signup' && <span className="field-note neutral">8자 이상, 영문과 숫자를 모두 포함해 주세요.</span>}
           </label>
 
+          {mode === 'signup' && (
+            <p className="field-note neutral">
+              가입하면 <a href="#/terms" target="_blank" rel="noreferrer">이용약관</a>과{' '}
+              <a href="#/privacy" target="_blank" rel="noreferrer">개인정보 처리방침</a>에 동의한 것으로 봅니다.
+            </p>
+          )}
+
           {error && <div className="editor-error" role="alert">{error}</div>}
         </div>
 

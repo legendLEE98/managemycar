@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import type { CarState, Garage } from '../api'
 import type { User } from '../auth'
+import type { Schedule } from '../schedules'
 import ExportButton from './ExportButton'
 import Sidebar from './Sidebar'
 import VehicleList from './VehicleList'
@@ -10,6 +11,7 @@ type Props = {
   user: User | null
   authReady: boolean
   garage: Garage
+  schedules: Schedule[]
   onSwitchVehicle: (id: string) => void
   onAddVehicle: () => void
   onRemoveVehicle: (id: string) => void
@@ -31,6 +33,7 @@ export default function MobileMenu({
   user,
   authReady,
   garage,
+  schedules,
   onSwitchVehicle,
   onAddVehicle,
   onRemoveVehicle,
@@ -115,7 +118,7 @@ export default function MobileMenu({
               </div>
             </>
           )}
-          <ExportButton garage={garage} className="btn ghost mp-export" />
+          <ExportButton garage={garage} schedules={schedules} className="btn ghost mp-export" />
         </section>
 
         <section className="mmenu-body">

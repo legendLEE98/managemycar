@@ -1,8 +1,19 @@
 import { useState } from 'react'
 import type { Garage } from '../api'
+import type { Schedule } from '../schedules'
 
 /** 등록한 전체 차량을 엑셀(.xlsx)로 내려받는다. 엑셀 만드는 코드는 누를 때 불러온다. */
-export default function ExportButton({ garage, className, label }: { garage: Garage; className?: string; label?: string }) {
+export default function ExportButton({
+  garage,
+  schedules,
+  className,
+  label,
+}: {
+  garage: Garage
+  schedules: Schedule[]
+  className?: string
+  label?: string
+}) {
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState('')
 
@@ -11,7 +22,7 @@ export default function ExportButton({ garage, className, label }: { garage: Gar
     setError('')
     try {
       const { downloadGarageXlsx } = await import('../exportXlsx')
-      await downloadGarageXlsx(garage)
+      await downloadGarageXlsx(garage, schedules)
     } catch {
       setError('엑셀 파일을 만들지 못했어요. 잠시 후 다시 시도해 주세요.')
     } finally {

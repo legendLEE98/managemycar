@@ -1,5 +1,6 @@
 import type { CarState } from './api'
 import { mostUrgent, serviceViews } from './derive'
+import type { Schedule } from './schedules'
 
 export type CalKind = 'done' | 'due' | 'overdue' | 'log' | 'plan'
 export type CalEvent = { date: string; kind: CalKind; title: string; detail?: string; scheduleId?: string }
@@ -24,9 +25,10 @@ function addMonths(dateKey: string, months: number): string {
  *  - done: 소모품을 교체한 날(교체 이력)
  *  - due / overdue: 개월 기준으로 계산한 교체 예정일(지났으면 overdue)
  *  - log: 주행·주유·계기판 갱신 같은 기록
+ *  - plan: 사용자가 직접 넣은 일정(schedules: 선택한 차량의 것만 넘긴다)
  * 주행거리 기준 항목은 날짜를 정할 수 없어서 일정에 넣지 않는다(임박한 소모품 목록에 표시).
  */
-export function buildEvents(state: CarState): CalEvent[] {
+export function buildEvents(state: CarState, schedules: Schedule[] = []): CalEvent[] {
   const out: CalEvent[] = []
   const today = todayKey()
   for (const v of serviceViews(state)) {
@@ -48,7 +50,7 @@ export function buildEvents(state: CarState): CalEvent[] {
       }
     }
   }
-  for (const x of state.schedules ?? []) out.push({ date: x.date, kind: 'plan', title: x.title, scheduleId: x.id })
+  for (const x of schedules) out.push({ date: x.date, kind: 'plan', title: x.title, scheduleId: x.id })
   for (const e of state.recent) {
     if (e.at && (e.type === 'fuel' || e.type === 'trip' || e.type === 'odometer')) {
       out.push({ date: e.at, kind: 'log', title: e.summary })

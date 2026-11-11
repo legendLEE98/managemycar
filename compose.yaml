@@ -36,6 +36,7 @@ services:
       CHAT_LIMIT_PER_MINUTE: ${CHAT_LIMIT_PER_MINUTE:-6}
       CHAT_DAILY_USER: ${CHAT_DAILY_USER:-60}
       CHAT_DAILY_GUEST: ${CHAT_DAILY_GUEST:-20}
+      CHAT_LOG_DAYS: ${CHAT_LOG_DAYS:-90}
 
   front:
     build: ./front

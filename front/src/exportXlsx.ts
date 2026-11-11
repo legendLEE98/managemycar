@@ -2,6 +2,7 @@ import type { CarState, Garage } from './api'
 import { buildEvents } from './calendar'
 import { efficiency, serviceRemaining, serviceViews, type ServiceView } from './derive'
 import { PART_INFO } from './services'
+import type { Schedule } from './schedules'
 import { hasData, vehicleName } from './storage'
 import { bodyLabel, fuelLabel } from './vehicleOptions'
 
@@ -33,7 +34,7 @@ function statusOf(v: ServiceView): string {
 }
 
 /** 화면과 같은 기준으로 4개 시트의 행을 만든다. 차량이 여러 대여도 시트는 4개이고 "차량" 열로 구분한다. */
-export function buildSheets(garage: Garage) {
+export function buildSheets(garage: Garage, schedules: Schedule[] = []) {
   const info: Row[] = []
   const services: Row[] = []
   const logs: Row[] = []
@@ -84,7 +85,7 @@ export function buildSheets(garage: Garage) {
       logs.push({ vehicle: name, date: toDate(e.at), kind: KIND[e.type ?? ''] ?? e.type ?? '', text: e.summary }),
     )
 
-    buildEvents(s)
+    buildEvents(s, schedules.filter((x) => x.vehicleId === entry.id))
       .sort((a, b) => (a.date < b.date ? -1 : 1))
       .forEach((e) =>
         schedule.push({ vehicle: name, date: toDate(e.date), kind: EVENT_KIND[e.kind], text: e.title, detail: e.detail ?? null }),
@@ -161,14 +162,14 @@ function visualLength(v: unknown): number {
   return [...String(v)].reduce((n, ch) => n + (ch.charCodeAt(0) > 255 ? 2 : 1), 0)
 }
 
-export async function buildWorkbook(garage: Garage) {
+export async function buildWorkbook(garage: Garage, schedules: Schedule[] = []) {
   const mod = await import('exceljs') // 버튼을 눌렀을 때만 불러온다(처음 화면은 가볍게)
   const ExcelJS = (mod as { default?: typeof import('exceljs') }).default ?? mod
   const wb = new ExcelJS.Workbook()
   wb.creator = '내차일기'
   wb.created = new Date()
 
-  for (const sheet of buildSheets(garage)) {
+  for (const sheet of buildSheets(garage, schedules)) {
     const ws = wb.addWorksheet(sheet.name, { views: [{ state: 'frozen', ySplit: 1 }] })
     ws.columns = sheet.cols.map((c) => ({
       header: c.header,
@@ -210,8 +211,8 @@ export async function buildWorkbook(garage: Garage) {
 const kstToday = () => new Date().toLocaleDateString('sv-SE', { timeZone: 'Asia/Seoul' })
 
 /** 내 차고(등록한 전체 차량)를 엑셀(.xlsx)로 만들어 내려받는다. 서버를 거치지 않고 브라우저에서 만든다. */
-export async function downloadGarageXlsx(garage: Garage): Promise<void> {
-  const wb = await buildWorkbook(garage)
+export async function downloadGarageXlsx(garage: Garage, schedules: Schedule[] = []): Promise<void> {
+  const wb = await buildWorkbook(garage, schedules)
   const buffer = await wb.xlsx.writeBuffer()
   const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' })
   const url = URL.createObjectURL(blob)
