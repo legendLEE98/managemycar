@@ -1,5 +1,6 @@
 package com.mycar.auth;
 
+import com.mycar.auth.AuthDtos.AppAuthResponse;
 import com.mycar.auth.AuthDtos.ChangePasswordRequest;
 import com.mycar.auth.AuthDtos.LoginRequest;
 import com.mycar.auth.AuthDtos.SignupRequest;
@@ -38,6 +39,25 @@ public class AuthController {
         AppUser u = auth.login(req, ClientIp.of(http));
         setSession(res, http, u.getId());
         return AuthService.dto(u);
+    }
+
+    /**
+     * 앱용 가입/로그인: 쿠키 대신 토큰을 본문으로 돌려준다. 앱은 토큰을 보안 저장소에 두고
+     * 모든 /api/v1/me/** 요청에 Authorization: Bearer 로 보낸다. 로그아웃은 앱이 토큰을 지우면 된다.
+     */
+    @PostMapping("/app/signup")
+    @ResponseStatus(HttpStatus.CREATED)
+    public AppAuthResponse appSignup(@Valid @RequestBody SignupRequest req) {
+        return appResponse(auth.signup(req));
+    }
+
+    @PostMapping("/app/login")
+    public AppAuthResponse appLogin(@Valid @RequestBody LoginRequest req, HttpServletRequest http) {
+        return appResponse(auth.login(req, ClientIp.of(http)));
+    }
+
+    private AppAuthResponse appResponse(AppUser u) {
+        return new AppAuthResponse(jwt.issue(u.getId()), jwt.ttl().toSeconds(), AuthService.dto(u));
     }
 
     @PostMapping("/logout")

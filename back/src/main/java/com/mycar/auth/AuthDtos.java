@@ -26,4 +26,7 @@ public final class AuthDtos {
             @Size(min = 8, max = 128, message = "새 비밀번호는 8자 이상 128자 이하로 입력해 주세요.") String newPassword) {}
 
     public record UserDto(long id, String email, String nickname, String provider) {}
+
+    /** 앱용 로그인 응답. token은 이후 요청의 Authorization: Bearer 헤더에 담아 보낸다. */
+    public record AppAuthResponse(String token, long expiresInSeconds, UserDto user) {}
 }
